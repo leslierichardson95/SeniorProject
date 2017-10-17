@@ -22,3 +22,7 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 twbs:bootstrap
 numtel:mysql
 dynamic-import
+accounts-password
+iron:router
+kadira:flow-router
+themeteorchef:jquery-validation
