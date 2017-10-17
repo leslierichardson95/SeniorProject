@@ -1,0 +1,44 @@
+<template name="signUp">
+	<form id="signUp-form">
+		<div class="form-group">
+			<label for="firstName">First Name</label>
+			<input type="text" class="form-control" name="firstName" required>
+		</div>
+		<div class="form-group">
+			<label for="lastName">Last Name</label>
+			<input type="text" class="form-control" name="lastName" required>
+		</div>
+		<div class="form-group">
+			<label for="signUpEmail">Email</label>
+			<input type="email" class="form-control" name="signUpEmail" required>
+		</div>
+		<div class="form-group">
+			<label for="signUpPassword">Password</label>
+			<input type="password" class="form-control"  name="signUpPassword" required>
+		</div>
+		<div class="form-group">
+			<input type="submit" class="btn btn-warning" style="width:100%; background-color: #FA4616" value="Sign Up">
+		</div>
+	</form>
+</template>
+
+<template name="signIn">
+	<form>
+		<div class="form-group">
+			<label for="signInEmail">Email</label>
+			<input type="email" class="form-control" name="signInEmail" required>
+			<label for="signInPassword">Password</label>
+			<input type="password" class="form-control" name="signInPassword" required>
+		</div>
+		<input type="submit" class="btn btn-warning" style="width:100%; background-color: #FA4616" value="Sign In">
+	</form>
+</template>
+
+<template name="navLoginInfo">
+	{{#if currentUser}}
+		<li><a href="#" class="logout">Sign Out</a></li>
+	{{else}}
+		<li><a href="{{pathFor route='signInPage'}}"><b>Sign In</b></a></li>
+		<li><a href="{{pathFor route='signUpPage'}}"><b>Sign Up</b></a></li>
+	{{/if}}
+</template>

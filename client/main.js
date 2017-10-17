@@ -1,22 +1,8 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import '../imports/ui/pages/homePage.js';
+import '../imports/ui/pages/LoginPages/signInPage.js';
+import '../imports/ui/pages/LoginPages/signUpPage.js';
 
-import './main.html';
+import '../imports/login/login.js';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
-
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+import '../imports/ui/navbar.js';
+import './routes.js';
