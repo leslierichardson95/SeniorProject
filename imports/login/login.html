@@ -14,7 +14,7 @@
 		</div>
 		<div class="form-group">
 			<label for="signUpPassword">Password</label>
-			<input type="password" class="form-control"  name="signUpPassword" required>
+			<input type="password" class="form-control" name="signUpPassword" required>
 		</div>
 		<div class="form-group">
 			<input type="submit" class="btn btn-warning" style="width:100%; background-color: #FA4616" value="Sign Up">
@@ -38,7 +38,9 @@
 	{{#if currentUser}}
 		<li><a href="#" class="logout">Sign Out</a></li>
 	{{else}}
-		<li><a href="{{pathFor route='signInPage'}}"><b>Sign In</b></a></li>
-		<li><a href="{{pathFor route='signUpPage'}}"><b>Sign Up</b></a></li>
+		<li>
+			<a href="{{pathFor route='signInPage'}}"><b>Sign In</b></a>
+			<a href="{{pathFor route='signUpPage'}}"><b>Sign Up</b></a>
+		</li>
 	{{/if}}
 </template>

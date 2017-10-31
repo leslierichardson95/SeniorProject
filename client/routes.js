@@ -10,5 +10,10 @@ Router.route('/signUp', {
 
 Router.route('/signIn', {
 	name: 'signInPage',
-	template: 'signInPage'
+	template: 'signInPage',
+});
+
+Router.route('/myClubs', {
+	name: 'myClubsPage',
+	template: 'myClubsPage'
 });
