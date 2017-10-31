@@ -1,0 +1,118 @@
+<template name= "event">
+<br><br><br><br><br><br><br>
+
+
+<div id="eventcontainer" style=" width: 1000px;
+  height: 600px;
+  top:50%;
+  position: relative;
+  margin: auto;
+  background-color: #8E44AD;"><!---eventcontainer1-->
+  <button type="button" class="btn btn-primary" style= " position: absolute;left: 3%; top: 3%;font-size:150%">Event Calendar</button>
+  
+  <h4 style="display:inline;position: absolute;left: 3%; top: 11%;"> Current Event </h4>
+  <h4 style="display:inline;position: absolute;left: 53%; top: 11%;"> Past Event </h4>
+
+
+  <div class="tab" style= " position: absolute;left: 3%; top: 17%;">
+    <button class="tablinks" onclick="openTab(event, 'Type1')">Type1</button>
+    <button class="tablinks" onclick="openTab(event, 'Type2')">Type2</button>
+    <button class="tablinks" onclick="openTab(event, 'Type3')">Type3</button>
+  </div>
+
+
+  <div class="tab" style= " position: absolute;left: 53%; top: 17%;">
+    <button class="tablinks1" onclick="openTab1(event, 'Type1Past')">Type1</button>
+    <button class="tablinks1" onclick="openTab1(event, 'Type2Past')">Type2</button>
+    <button class="tablinks1" onclick="openTab1(event, 'Type3Past')">Type3</button>
+  </div>
+
+<!---current events -->
+  <div id="Type1" class="tabcontent" style= " position: absolute;left: 3%; top: 26%;">
+    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+    <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
+    <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
+    <br><br>
+    <p>London is the capital city of England.</p>
+  </div>
+
+  
+  <div id="Type2" class="tabcontent" style= " position: absolute;left: 3%; top: 26%;">
+    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+    <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
+    <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
+    <br><br>
+    <p>Paris is the capital of France.</p> 
+  </div>
+
+  <div id="Type3" class="tabcontent" style= " position: absolute;left: 3%; top: 26%;">
+    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+    <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
+    <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
+    <br><br>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+  <!---past events -->
+  <div id="Type1Past" class="tabcontent1" style= " position: absolute;left: 53%; top: 26%;">
+    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+    <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
+    <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
+    <br><br>
+    <p>London is the capital city of England.</p>
+  </div>
+
+  <div id="Type2Past" class="tabcontent1" style= " position: absolute;left: 53%; top: 26%;">
+    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+    <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
+    <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
+    <br><br>
+    <p>Paris is the capital of France.</p> 
+  </div>
+
+  <div id="Type3Past" class="tabcontent1" style= " position: absolute;left: 53%; top: 26%;">
+    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+    <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
+    <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
+    <br><br>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+	<script>
+	document.getElementsByClassName('tablinks')[0].click()
+	function openTab(evt, cityName) {
+	    var i, tabcontent, tablinks;
+	    tabcontent = document.getElementsByClassName("tabcontent");
+	    for (i = 0; i < tabcontent.length; i++) {
+	        tabcontent[i].style.display = "none";
+	    }
+	    tablinks = document.getElementsByClassName("tablinks");
+	    for (i = 0; i < tablinks.length; i++) {
+	        tablinks[i].className = tablinks[i].className.replace(" active", "");
+	    }
+	    document.getElementById(cityName).style.display = "block";
+	    evt.currentTarget.className += " active";
+	}
+	</script>
+
+	<script>
+	document.getElementsByClassName('tablinks1')[0].click()
+	function openTab1(evt, cityName) {
+	    var i, tabcontent, tablinks;
+	    tabcontent = document.getElementsByClassName("tabcontent1");
+	    for (i = 0; i < tabcontent.length; i++) {
+	        tabcontent[i].style.display = "none";
+	    }
+	    tablinks = document.getElementsByClassName("tablinks1");
+	    for (i = 0; i < tablinks.length; i++) {
+	        tablinks[i].className = tablinks[i].className.replace(" active", "");
+	    }
+	    document.getElementById(cityName).style.display = "block";
+	    evt.currentTarget.className += " active";
+	}
+	</script>
+
+</div><!---end of eventcontainer-->
+
+
+</template>	
