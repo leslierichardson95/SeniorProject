@@ -13,7 +13,3 @@ Router.route('/signIn', {
 	template: 'signInPage'
 });
 
-Router.route('/event', {
-	name: 'event',
-	template: 'event'
-});

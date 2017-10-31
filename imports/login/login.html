@@ -1,23 +1,23 @@
 <template name="signUp">
 	<form id="signUp-form">
 		<div class="form-group">
-			<label for="firstName">First Name</label>
-			<input type="text" class="form-control" name="firstName" required>
+			<label for="firstName" style="position: fixed;left:35%;top:32%;">First Name</label>
+			<input type="text" class="form-control" style="width:30%;position: fixed;left:35%;top:36%;" name="firstName" required >
 		</div>
 		<div class="form-group">
-			<label for="lastName">Last Name</label>
-			<input type="text" class="form-control" name="lastName" required>
+			<label for="lastName" style="position: fixed;left:35%;top:42%;">Last Name</label>
+			<input type="text" class="form-control" style="width:30%;position: fixed;left:35%;top:46%;" name="lastName" required>
 		</div>
 		<div class="form-group">
-			<label for="signUpEmail">Email</label>
-			<input type="email" class="form-control" name="signUpEmail" required>
+			<label for="signUpEmail" style="position: fixed;left:35%;top:52%;">Email</label>
+			<input type="email" class="form-control" style="width:30%;position: fixed;left:35%;top:56%;" name="signUpEmail" required >
 		</div>
 		<div class="form-group">
-			<label for="signUpPassword">Password</label>
-			<input type="password" class="form-control"  name="signUpPassword" required>
+			<label for="signUpPassword" style="position: fixed;left:35%;top:62%;">Password</label>
+			<input type="password" class="form-control" style="width:30%;position: fixed;left:35%;top:66%;" name="signUpPassword" required >
 		</div>
 		<div class="form-group">
-			<input type="submit" class="btn btn-warning" style="width:100%; background-color: #FA4616" value="Sign Up">
+			<input type="submit" class="btn btn-warning" style="width:25%; position: fixed;left:38%;top:76%;background-color: #FA4616" value="Sign Up" >
 		</div>
 	</form>
 </template>
@@ -25,20 +25,20 @@
 <template name="signIn">
 	<form>
 		<div class="form-group">
-			<label for="signInEmail">Email</label>
-			<input type="email" class="form-control" name="signInEmail" required>
-			<label for="signInPassword">Password</label>
-			<input type="password" class="form-control" name="signInPassword" required>
+			<label for="signInEmail" style="position: fixed;left:32%;top:35%;">Email</label>
+			<input type="email" class="form-control" style="width:40%;position: fixed;left:32%;top:40%" name="signInEmail" required>
+			<label for="signInPassword" style="position: fixed;left:32%;top:48%;">Password</label>
+			<input type="password" class="form-control" style="width:40%;position: fixed;left:32%;top:52%;" name="signInPassword" required  size="40">
 		</div>
-		<input type="submit" class="btn btn-warning" style="width:100%; background-color: #FA4616" value="Sign In">
+		<input type="submit" class="btn btn-warning" style="width:25%;position: fixed;left:40%;top:62%; background-color: #FA4616;" value="Sign In">
 	</form>
 </template>
 
 <template name="navLoginInfo">
 	{{#if currentUser}}
-		<li style= "position: fixed; left: 1050px; top:2px;font-size:130%;color:black;white-space:nowrap;"><a href="#" class="logout" style="color:black;" >Sign Out</a></li>
+		<li style= "position: fixed; left: 1050px; top:1px;font-size:130%;color:black;white-space:nowrap;"><a href="#" class="logout" style="color:black;" >Sign Out</a></li>
 	{{else}}
-		<li style= "position: fixed; left: 1050px; top:2px;font-size:130%;color:black;white-space:nowrap;" ><a href="{{pathFor route='signInPage'}}" style="color:black;" ><b>Sign In</b></a></li>
-		<li style= "position: fixed; left: 1165px; top:2px;font-size:130%;color:black;white-space:nowrap;"><a href="{{pathFor route='signUpPage'}}" style="color:black;"><b>Sign Up</b></a></li>
+		<li style= "position: fixed; left: 1050px; top:1px;font-size:130%;color:black;white-space:nowrap;" ><a href="{{pathFor route='signInPage'}}" style="color:black;" ><b>Sign In</b></a></li>
+		<li style= "position: fixed; left: 1165px; top:1px;font-size:130%;color:black;white-space:nowrap;"><a href="{{pathFor route='signUpPage'}}" style="color:black;"><b>Sign Up</b></a></li>
 	{{/if}}
 </template>

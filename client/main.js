@@ -7,4 +7,6 @@ import '../imports/ui/navbar1.js';
 import '../imports/ui/slideshow.js';
 import '../imports/ui/event.js';
 import '../imports/ui/post.js';
+import '../imports/ui/list.js';
+import '../imports/ui/footer.js';
 import './routes.js';
