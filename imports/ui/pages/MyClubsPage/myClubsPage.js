@@ -3,7 +3,6 @@ import { Clubs } from '../../../database/clubs.js';
 
 import './myClubsPage.html';
 
-var clubId;
 Template.myClubsPage.events({
 	'submit .clubForm'(event) {
 		event.preventDefault();

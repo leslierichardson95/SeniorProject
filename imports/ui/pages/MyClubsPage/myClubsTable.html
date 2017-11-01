@@ -12,19 +12,23 @@
         <th></th>
       </tr>
     </thead>
+    <tbody>
+      {{#each clubs}}
+        {{> club}}
+      {{/each}}
+    </tbody>
   </table>
 
 </template>
 
 <template name="club">
   <tr>
-    {{#each clubs}}
       <td>{{ clubName }}</td>
       <td>{{ clubDescription }}</td>
       <td>{{ creationDate }}</td>
-    {{/each}}
     <td>{{ memberStatus }}</td>
     <td>{{ officerPosition }}</td>
+
 
     <td>
        <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->

@@ -20,7 +20,7 @@ if (Meteor.isClient) {
 			var lastNameVar = event.target.lastName.value;
 			var emailVar = event.target.signUpEmail.value;
 			var passwordVar = event.target.signUpPassword.value;
-			
+		
 			// Create a new user with specified information--automatically encrypted using
 			// createUser().  Users are logged in after signing up
 			Accounts.createUser({

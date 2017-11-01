@@ -5,7 +5,7 @@ import { check } from 'meteor/check';
 export const Members = new Mongo.Collection('members');
 
 Meteor.methods({
-	'members.insert'(userId, firstName, lastName, email, phoneNumber, status, position) {
+	'members.insert'(userId, firstName, lastName, email, phoneNumber, status, position, clubId) {
 		if (!this.userId) { throw new Meteor.Error('not-authorized'); }
 
 		Members.insert({
@@ -16,8 +16,8 @@ Meteor.methods({
 			phoneNumber, // optional
 			status, // i.e. active/inactive/ADMIN/etc
 			position, // i.e. president, general member, etc.
+			clubId, // key linking member with particular club
 			dateJoined: new Date(),
-			club // key linking member with particular club
 		});
 	},
 

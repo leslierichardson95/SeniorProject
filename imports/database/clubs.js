@@ -7,13 +7,12 @@ export const Clubs = new Mongo.Collection('clubs');
 
 Meteor.methods({
 	'clubs.insert'(clubName, clubDescription, memberId) {
-		console.log('hi');
 		check(clubName, String);
 		check(clubDescription, String);
 
 		if (!this.userId) { throw new Meteor.Error('not-authorized'); }
 
-		Clubs.insert({
+		var clubID = Clubs.insert({
 			clubName,
 			clubDescription,
 			creationDate: new Date(),
@@ -22,18 +21,22 @@ Meteor.methods({
 			events: []
 		});
 
+		var firstName = Meteor.user().profile.firstName;
+		var lastName = Meteor.user().profile.lastName;
+		var email = Meteor.user().emails[0].address;
+
 		Meteor.call('members.insert', 
-			memberId,
-			Meteor.user.profile.firstName,
-			Meteor.user.profile.lastName,
-			Meteor.user.emails[0].address,
+			this.userId,
+			firstName,
+			lastName,
+			email,
 			'',
 			'Admin/Active',
 			'General Member',
-			clubName
+			clubID
 		);
 
-		Meteor.call('clubs.addMember', this._id, memberId);
+		Meteor.call('clubs.addMember', clubID, this.userId);
 	},
 
 	'clubs.update'(clubId, newClubName, newClubDescription) {
