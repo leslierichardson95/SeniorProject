@@ -1,0 +1,90 @@
+
+<template name="CalPage">
+
+
+
+	{{> navbar}}
+	{{> navbar1}}
+
+<br><br><br><br><br><br><br><br>
+
+
+
+<div id="Calcontainer" style="width: 1000px;
+  height: 850px;
+  top:50%;
+  position: relative;
+  margin: auto;
+  background-color: white;"> 
+<a href="{{pathFor 'homePage' hash='eventmark'}}"><button type="button" class="btn btn-primary" style= " position: absolute;left: 3%; top: 3%;font-size:150%">Back</button></a>
+<br><br><br><br>
+<div id='calendar' style="width:900px; margin:0 auto;"></div>
+
+</div> 
+
+
+ <br><br><br><br>
+{{> footer}} 
+
+<script>
+var today = moment().format('YYYY-MM-DD');
+    console.log(today);
+$('#calendar').fullCalendar({
+	header: {
+		left: 'prev,next today',
+		center: 'title',
+		right: 'month,agendaWeek,agendaDay'
+	},
+
+
+	defaultDate: today,
+	editable: false,
+    eventRender: function(event, element, view) {
+        return $('<div>' + event.title + '</div>');
+    },
+
+	events: [
+		{
+			title: 'All Day Event',
+			start: '2017-11-01'
+		},
+		{
+			title: 'Long Event',
+			start: '2017-11-07',
+			end: '2017-11-10'
+		},
+		{
+			id: 999,
+			title: 'Repeating Event',
+			start: '2017-11-09T16:00:00'
+		},
+		{
+			id: 999,
+			title: 'Repeating Event',
+			start: '2017-11-16T16:00:00'
+		},
+		{
+			title: 'Meeting',
+			start: '2017-11-12T10:30:00',
+			end: '2017-11-12T12:30:00'
+		},
+		{
+			title: 'Lunch',
+			start: '2017-11-12T12:00:00'
+		},
+		{
+			title: 'Birthday Party',
+			start: '2017-11-13T07:00:00'
+		},
+		{
+			title: 'Click for Google',
+			url: 'http://google.com/',
+			start: '2017-11-28'
+		},
+	]
+});
+
+</script>
+
+
+</template>	

@@ -18,3 +18,8 @@ Router.route('/about', {
 	template: 'about'
 });
 
+
+Router.route('/CalPage', {
+	name: 'CalPage',
+	template: 'CalPage'
+});

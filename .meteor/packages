@@ -26,3 +26,5 @@ accounts-password
 iron:router
 kadira:flow-router
 themeteorchef:jquery-validation
+fullcalendar:fullcalendar
+momentjs:moment
