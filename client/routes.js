@@ -15,5 +15,5 @@ Router.route('/signIn', {
 
 Router.route('/myClubs', {
 	name: 'myClubsPage',
-	template: 'myClubsPage'
+	template: 'myClubsPage',
 });

@@ -25,3 +25,5 @@ accounts-password
 iron:router
 themeteorchef:jquery-validation
 perak:joins
+msavin:mongol
+autopublish

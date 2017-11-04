@@ -4,16 +4,15 @@
       <tr>
         <th>Club Name</th>
         <th>Club Description</th>
-        <th>Members</th>
-        <th>Member Status</th>
-        <th>Officer Position</th>
         <th>Creation Date</th>
+        <th>Member Status</th>
+        <th>Position</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      {{#each clubs}}
+      {{#each members}}
         {{> club}}
       {{/each}}
     </tbody>
@@ -23,12 +22,11 @@
 
 <template name="club">
   <tr>
-      <td>{{ clubName }}</td>
-      <td>{{ clubDescription }}</td>
-      <td>{{ creationDate }}</td>
-    <td>{{ memberStatus }}</td>
-    <td>{{ officerPosition }}</td>
-
+      <td>{{ club.clubName }}</td>
+      <td>{{ club.clubDescription }}</td>
+      <td>{{ club.creationDate }}</td>
+      <td>{{ status }}</td>
+      <td>{{ position }}</td>
 
     <td>
        <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->
@@ -36,7 +34,7 @@
     </td>
     <td>
        <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->
-        <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Delete</button>
+        <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Delete Club</button>
     </td>
   </tr>
 </template>

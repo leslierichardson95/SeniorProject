@@ -16,7 +16,7 @@ Meteor.methods({
 			clubName,
 			clubDescription,
 			creationDate: new Date(),
-			members: [],
+			members: [], // store user id of each member 
 			requirements: [],
 			events: []
 		});
@@ -25,6 +25,7 @@ Meteor.methods({
 		var lastName = Meteor.user().profile.lastName;
 		var email = Meteor.user().emails[0].address;
 
+		// insert default member (the user who created the club) 
 		Meteor.call('members.insert', 
 			this.userId,
 			firstName,
@@ -35,7 +36,7 @@ Meteor.methods({
 			'General Member',
 			clubID
 		);
-
+		// add default member to the club
 		Meteor.call('clubs.addMember', clubID, this.userId);
 	},
 
@@ -50,6 +51,7 @@ Meteor.methods({
 
 	'clubs.remove'(clubId) {
 		check(clubId, String);
-		Clubs.remove(clubIs);
+		Members.remove({clubId: clubId}); // remove all members in the specified club
+		Clubs.remove(clubId); // remove the club
 	}
 });

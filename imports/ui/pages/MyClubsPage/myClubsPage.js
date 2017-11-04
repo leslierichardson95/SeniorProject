@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating';
-import { Clubs } from '../../../database/clubs.js';
+import { Clubs } from '../../../database/clubs.js'; 
 
 import './myClubsPage.html';
 
