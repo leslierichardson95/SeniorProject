@@ -18,7 +18,8 @@ Meteor.methods({
 			creationDate: new Date(),
 			members: [], // store user id of each member 
 			requirements: [],
-			events: []
+			events: [],
+			admin: this.userId
 		});
 
 		var firstName = Meteor.user().profile.firstName;
@@ -34,7 +35,8 @@ Meteor.methods({
 			'',
 			'Admin/Active',
 			'General Member',
-			clubID
+			clubID,
+			true // first member/creator admin by default
 		);
 		// add default member to the club
 		Meteor.call('clubs.addMember', clubID, this.userId);

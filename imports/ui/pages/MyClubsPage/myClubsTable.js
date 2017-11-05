@@ -13,12 +13,16 @@ Template.myClubsTable.helpers({
 		Members.join(Clubs, "clubId", "club", ["clubName", "clubDescription", "creationDate"]);
 		var array = Members.find({userId: Meteor.userId()},{"club.clubName":1, "club.clubDescription":1, "club.creationDate":1}).fetch();
 		return array;
-	},
-
-	isAdmin: function() {
-		// return 
 	}
 	
+});
+
+Template.club.helpers({
+	// Checks if the current user is the admin of the club
+	isAdmin: function() {
+		var adminId = Members.findOne({_id: this._id}).admin;
+		return adminId;
+	},
 });
 
 Template.club.events({

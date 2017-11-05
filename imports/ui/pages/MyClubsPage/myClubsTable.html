@@ -34,7 +34,9 @@
     </td>
     <td>
        <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->
-        <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Delete Club</button>
+       {{#if isAdmin}}
+          <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Delete Club</button>
+        {{/if}}
     </td>
   </tr>
 </template>
