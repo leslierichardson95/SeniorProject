@@ -6,9 +6,16 @@ if (Meteor.isClient) {
 	Template.navLoginInfo.events({
 		'click .logout': function(event) {
 			event.preventDefault();
-			Meteor.logout(function(err) {
-				if (err) console.log('Error logging out!');
-				Router.go("/"); // redirect to homepage on logout
+			Meteor.logout(function(error) {
+				if (error) {
+					return swal({
+						title: error.reason,
+						text: "Please try again",
+						showConfirmButton: true,
+						type: "error"
+					});
+				}
+				else Router.go("/"); // redirect to homepage on logout
 			});
 		}
 	});
@@ -20,24 +27,44 @@ if (Meteor.isClient) {
 			var lastNameVar = event.target.lastName.value;
 			var emailVar = event.target.signUpEmail.value;
 			var passwordVar = event.target.signUpPassword.value;
+			var confirmPasswordVar = event.target.confirmPassword.value;
+
+			var isValidPassword = function(pwd1, pwd2) {
+				if (pwd1 !== pwd2) {
+					return swal({
+						title: "Passwords don't match",
+						text: "Please try again",
+						showConfirmButton: true,
+						type: "error"
+					});
+				}
+				else return true;
+			}
 		
 			// Create a new user with specified information--automatically encrypted using
 			// createUser().  Users are logged in after signing up
-			Accounts.createUser({
-				firstName: firstNameVar,
-				lastName: lastNameVar,
-				email: emailVar,
-				password: passwordVar
-			}, function(error){
-				if (error) console.log(error.reason);
-			});
-			Router.go('/'); // redirect to homepage on sign up
+			if (isValidPassword(passwordVar, confirmPasswordVar)) {
+				Accounts.createUser({
+					firstName: firstNameVar,
+					lastName: lastNameVar,
+					email: emailVar,
+					password: passwordVar
+				}, function(error){
+					if (error) {
+						return swal({
+							title: error.reason,
+							text: "Please try again",
+							showConfirmButton: true,
+							type: "error"
+						});
+						console.log(error.reason);
+					}
+					else Router.go('/'); // redirect to homepage on sign up
+				});
+			}
+
 		}
 	});
-
-	// Template.signUp.onRendered( function() {
-	// 	$("#signUp-form").validate();
-	// });
 
 	Template.signIn.events({
 		'submit form': function(event) {
@@ -45,8 +72,15 @@ if (Meteor.isClient) {
 			var emailVar = event.target.signInEmail.value;
 			var passwordVar = event.target.signInPassword.value;
 			Meteor.loginWithPassword(emailVar, passwordVar, function(error){
-				if (error) console.log(error.reason);
-				Router.go('/'); // redirect to homepage on login
+				if (error) {
+					return swal({
+						title: error.reason,
+						text: "Please try again",
+						showConfirmButton: true,
+						type: "error"
+					});
+				}
+				else Router.go('/'); // redirect to homepage on login
 			});
 		}
 	});
