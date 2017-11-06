@@ -37,19 +37,20 @@ if (Meteor.isClient) {
 
 			var isValidPassword = function(pwd1, pwd2) {
 				if (pwd1 !== pwd2) {
-					return swal({
+					swal({
 						title: "Passwords don't match",
 						text: "Please try again",
 						showConfirmButton: true,
 						type: "error"
 					});
+					return false;
 				}
 				else return true;
 			}
 		
 			// Create a new user with specified information--automatically encrypted using
 			// createUser().  Users are logged in after signing up
-			if (isValidPassword(passwordVar, confirmPasswordVar)) {
+			if (isValidPassword(passwordVar, confirmPasswordVar) === true) {
 				Accounts.createUser({
 					firstName: firstNameVar,
 					lastName: lastNameVar,
