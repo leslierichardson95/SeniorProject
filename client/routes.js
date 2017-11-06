@@ -12,3 +12,14 @@ Router.route('/signIn', {
 	name: 'signInPage',
 	template: 'signInPage'
 });
+
+Router.route('/about', {
+	name: 'about',
+	template: 'about'
+});
+
+
+Router.route('/CalPage', {
+	name: 'CalPage',
+	template: 'CalPage'
+});
