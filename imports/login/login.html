@@ -40,10 +40,10 @@
 
 <template name="navLoginInfo">
 	{{#if currentUser}}
-		<li style= "position: fixed; left: 1050px; top:1px;font-size:130%;color:black;white-space:nowrap;" ><b>Hi {{firstName}}!</b></li>
-		<li style= "position: fixed; left: 1165px; top:1px;font-size:130%;color:black;white-space:nowrap;"><a href="#" class="logout" style="color:black;" >Sign Out</a></li>
+		<li style= "position: fixed; left: 80%; top:1px;font-size:130%;color:black;white-space:nowrap;" ><b>Hi {{firstName}}!</b></li>
+		<li style= "position: fixed; left: 88%; top:1px;font-size:130%;color:black;white-space:nowrap;"><a href="#" class="logout" style="color:black;" >Sign Out</a></li>
 	{{else}}
-		<li style= "position: fixed; left: 1050px; top:1px;font-size:130%;color:black;white-space:nowrap;" ><a href="{{pathFor 'signInPage' hash='inmark'}}" style="color:black;" ><b>Sign In</b></a></li>
-		<li style= "position: fixed; left: 1165px; top:1px;font-size:130%;color:black;white-space:nowrap;"><a href="{{pathFor 'signUpPage' hash='upmark'}}" style="color:black;"><b>Sign Up</b></a></li>
+		<li style= "position: fixed; left: 80%; top:1px;font-size:130%;color:black;white-space:nowrap;" ><a href="{{pathFor 'signInPage' hash='inmark'}}" style="color:black;" ><b>Sign In</b></a></li>
+		<li style= "position: fixed; left: 88%; top:1px;font-size:130%;color:black;white-space:nowrap;"><a href="{{pathFor 'signUpPage' hash='upmark'}}" style="color:black;"><b>Sign Up</b></a></li>
 	{{/if}}
 </template>
