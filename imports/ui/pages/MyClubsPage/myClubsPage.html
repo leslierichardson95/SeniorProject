@@ -1,0 +1,44 @@
+<template name="myClubsPage">
+  {{> navbar}}
+  <div class="container">
+    {{#if currentUser}}
+      <ul align="right">
+        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#clubCreationModal">Create a New Club/Organization</button>
+      </ul>
+      <ul> {{> myClubsTable }} </ul>
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="clubCreationModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Create a New Club/Organization</h4>
+          </div>
+          <div class="modal-body">
+            <form class="clubForm">
+              <div class="form-group">
+                <label for="clubName">Club Name</label>
+                <input type="text" class="form-control" id="clubName" aria-describedby="clubNameHelp" required>
+              </div>
+              <div class="form-group">
+                <label for="clubDescription" alt-text="Write a brief description for your club">Club Description (Optional)</label>
+                <textarea type="clubDescription" class= "form-control" id= "clubDescription" aria-describedby="clubDescriptionHelp"></textarea>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-default">Create Club!</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</template>
