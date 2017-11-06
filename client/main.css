@@ -2,7 +2,7 @@
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 58%;
+  max-width: 100%;
   max-height: 58%;
   position: relative;
   margin: auto;
@@ -75,7 +75,7 @@
 }
 
 /* Fading animation */
-.fade {
+.slide-fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 4s;
   animation-name: fade;
@@ -211,7 +211,8 @@ div.tab button.active {
 /* ==================================================================================================================  */
 
 body {
-  background-image: url(/bat.jpg);
+  /*background-image: url(/bat.jpg);*/
+  background-color: white;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;

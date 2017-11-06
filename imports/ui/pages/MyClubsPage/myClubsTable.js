@@ -27,8 +27,23 @@ Template.club.helpers({
 
 Template.club.events({
 	'click .deleteBtn' () {
-		// need to get club id based on member id
 		var clubId = Members.findOne({_id: this._id}, {clubId:1, _id:0}).clubId;
-		Meteor.call('clubs.remove', clubId);
+		swal({
+			title: 'Are you sure you want to delete this club?',
+			text: "Once deleted, all club data will be erased and cannot be recovered.",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+		  	cancelButtonColor: '#d33',
+		  	confirmButtonText: 'Yes, delete it!',
+		  	cancelButtonText: 'No, cancel!',
+		  	confirmButtonClass: 'btn btn-success',
+		  	cancelButtonClass: 'btn btn-danger',
+		  	buttonsStyling: false,
+		}).then(function () {
+			// need to get club id based on member id
+			Meteor.call('clubs.remove', clubId);
+			swal("Club deleted!", '','success');
+		});
 	}
 });

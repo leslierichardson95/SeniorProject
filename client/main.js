@@ -9,8 +9,8 @@ import '../imports/ui/pages/LoginPages/signInPage.js';
 import '../imports/ui/pages/LoginPages/signUpPage.js';
 import '../imports/login/login.js';
 
-import '../imports/ui/navbar.js';
-import '../imports/ui/navbar1.js';
+import '../imports/ui/navbar/navbar.js';
+import '../imports/ui/navbar/navbar1.js';
 
 import '../imports/ui/slideshow.js';
 import '../imports/ui/event.js';

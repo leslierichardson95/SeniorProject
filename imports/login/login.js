@@ -3,6 +3,12 @@ import './login.html';
 
 // Don't want this code running on the server (only meant for the interface)
 if (Meteor.isClient) {
+	Template.navLoginInfo.helpers({
+		firstName: function() {
+			return Meteor.user().profile.firstName;
+		}
+	});
+
 	Template.navLoginInfo.events({
 		'click .logout': function(event) {
 			event.preventDefault();
