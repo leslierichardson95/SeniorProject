@@ -1,22 +1,22 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import '../imports/ui/pages/homePage.js';
 
-import './main.html';
+import '../imports/ui/pages/MyClubsPage/myClubsPage.js';
+import '../imports/ui/pages/MyClubsPage/myClubsTable.js';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+import '../imports/ui/pages/CalPage.js';
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
+import '../imports/ui/pages/LoginPages/signInPage.js';
+import '../imports/ui/pages/LoginPages/signUpPage.js';
+import '../imports/login/login.js';
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+import '../imports/ui/navbar/navbar.js';
+import '../imports/ui/navbar/navbar1.js';
+
+import '../imports/ui/slideshow.js';
+import '../imports/ui/event.js';
+import '../imports/ui/post.js';
+import '../imports/ui/list.js';
+import '../imports/ui/footer.js';
+import '../imports/ui/about.js';
+
+import './routes.js';

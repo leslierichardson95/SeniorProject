@@ -1,0 +1,42 @@
+<template name="myClubsTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Club Name</th>
+        <th>Club Description</th>
+        <th>Creation Date</th>
+        <th>Member Status</th>
+        <th>Position</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each members}}
+        {{> club}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</template>
+
+<template name="club">
+  <tr>
+      <td>{{ club.clubName }}</td>
+      <td>{{ club.clubDescription }}</td>
+      <td>{{ club.creationDate }}</td>
+      <td>{{ status }}</td>
+      <td>{{ position }}</td>
+
+    <td>
+       <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->
+        <button type="button" class="enterBtn btn btn-md btn-success" data-dismiss="modal">Enter Club Site</button>
+    </td>
+    <td>
+       <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->
+       {{#if isAdmin}}
+          <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Delete Club</button>
+        {{/if}}
+    </td>
+  </tr>
+</template>
