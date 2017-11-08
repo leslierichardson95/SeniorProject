@@ -27,3 +27,8 @@ Router.route('/CalPage', {
 	name: 'CalPage',
 	template: 'CalPage'
 });
+
+Router.route('/search', {
+	name: 'search',
+	template: 'search'
+});

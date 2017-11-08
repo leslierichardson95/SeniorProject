@@ -18,5 +18,8 @@ import '../imports/ui/post.js';
 import '../imports/ui/list.js';
 import '../imports/ui/footer.js';
 import '../imports/ui/about.js';
+import '../imports/ui/search.js';
 
 import './routes.js';
+
+
