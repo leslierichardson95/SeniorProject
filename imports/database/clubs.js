@@ -57,3 +57,33 @@ Meteor.methods({
 		Clubs.remove(clubId); // remove the club
 	}
 });
+
+if ( Meteor.isServer ) {
+  Clubs._ensureIndex( { clubName: 1, creationDate: 1} );
+}
+
+Clubs.allow({
+  insert: () => false,
+  update: () => false,
+  remove: () => false
+});
+
+Clubs.deny({
+  insert: () => true,
+  update: () => true,
+  remove: () => true
+});
+
+let ClubsSchema = new SimpleSchema({
+  'clubName': {
+    type: String,
+    label: 'The name of this club.'
+  },
+  'creationDate': {
+    type: String,
+    label: 'The created date of this club.'
+  },
+
+});
+
+Clubs.attachSchema( ClubsSchema );
