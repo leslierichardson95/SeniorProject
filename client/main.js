@@ -3,6 +3,15 @@ import '../imports/ui/pages/homePage.js';
 import '../imports/ui/pages/MyClubsPage/myClubsPage.js';
 import '../imports/ui/pages/MyClubsPage/myClubsTable.js';
 
+import '../imports/ui/pages/ClubSite/clubSiteHome.js';
+//import '../imports/ui/pages/ClubSite/clubSiteSideNav.js';
+import '../imports/ui/pages/ClubSite/MembersPage/membersPage.js';
+import '../imports/ui/pages/ClubSite/MembersPage/membersTable.js';
+import '../imports/ui/pages/ClubSite/MembersPage/membersPageWrapper.js';
+import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsPage.js';
+import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsTable.js';
+import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsPageWrapper.js';
+
 import '../imports/ui/pages/CalPage.js';
 
 import '../imports/ui/pages/LoginPages/signInPage.js';
@@ -21,5 +30,3 @@ import '../imports/ui/about.js';
 import '../imports/ui/search.js';
 
 import './routes.js';
-
-

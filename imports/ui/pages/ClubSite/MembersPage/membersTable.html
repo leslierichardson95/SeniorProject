@@ -1,0 +1,39 @@
+<template name="membersTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date Joined</th>
+        <th>Member Status</th>
+        <th>Position</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each members}}
+        {{> member}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</template>
+
+<template name="member">
+  <tr>
+      <td>{{ firstName }}</td>
+      <td>{{ lastName }}</td>
+      <td>{{ dateJoined }}</td>
+      <td>{{ status }}</td>
+      <td>{{ position }}</td>
+      <td>{{ email }}</td>
+
+    <td>
+        <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->
+        {{#if isAdmin}}
+          <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Remove Member</button>
+        {{/if}} 
+    </td>
+  </tr>
+</template>

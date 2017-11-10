@@ -2,8 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Clubs } from '../../../database/clubs.js';
 import { Members } from '../../../database/members.js';
+import { ClubSiteIds } from '../../../database/clubSiteIds.js';
 
 import './myClubsTable.html';
+
 
 // retrieve all clubs the current user is a part of 
 // ie, find all clubs containing a member with user's email
@@ -26,6 +28,18 @@ Template.club.helpers({
 });
 
 Template.club.events({
+	'click .enterBtn' () {
+		// set global club site id to the corresponding button pressed
+		var clubSiteId = Members.findOne({_id: this._id}, {clubId:1, _id:0}).clubId;
+		if (ClubSiteIds.find({clubIdUser: Meteor.userId()}).count() === 0) {
+			Meteor.call('clubSiteIds.insert', clubSiteId)
+		}
+		else {
+			Meteor.call('clubSiteIds.update', clubSiteId);
+		}
+		Router.go('/clubSiteHome'); // go to the corresponding club site page
+	},
+
 	'click .deleteBtn' () {
 		var clubId = Members.findOne({_id: this._id}, {clubId:1, _id:0}).clubId;
 		swal({

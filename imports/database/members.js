@@ -32,8 +32,8 @@ Meteor.methods({
 		Members.update(memberId, { $set: {"admin": newAdmin } });
 	},
 
-	'members.addRequirement'(requirementName) {
-		Members.update({}, 
+	'members.addRequirement'(requirementName, clubSiteId) {
+		Members.update({clubId: clubSiteId}, 
 			{ $addToSet: 
 				{
 					[requirementName]: 0
@@ -41,8 +41,8 @@ Meteor.methods({
 			}, {multi: true});
 	},
 
-	'members.updateRequirement'(oldName, newName) {
-		Members.update({},
+	'members.updateRequirement'(oldName, newName, clubSiteId) {
+		Members.update({clubId: clubSiteId},
 			{ $rename:
 				{
 					[oldName]: newName
@@ -50,8 +50,8 @@ Meteor.methods({
 			}, {multi: true});
 	},
 
-	'members.removeRequirement'(requirementName) {
-		Members.update({},
+	'members.removeRequirement'(requirementName, clubSiteId) {
+		Members.update({clubId: clubSiteId},
 			{ $unset:
 				{
 					[requirementName]:1
