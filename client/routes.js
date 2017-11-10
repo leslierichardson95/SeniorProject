@@ -42,3 +42,8 @@ Router.route('/requirements', {
 	name: 'requirementsPage',
 	template: 'requirementsPageWrapper'
 });
+
+Router.route('/search', {
+	name: 'search',
+	template: 'search'
+});

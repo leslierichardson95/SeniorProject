@@ -2,7 +2,7 @@
   {{> navbar}}
   {{> navbar1}}
   <br><br><br><br><br><br><br><br>
-  <div class="container">
+  <div class="container" style="width: 1000px;height:400px; top: 50%; position:relative;margin:auto;background-color:white;border-radius:25px">
     {{#if currentUser}}
       <h1 align="center">My Clubs</h1>
       <ul align="right">
@@ -10,10 +10,14 @@
       </ul>
       <ul> {{> myClubsTable }} </ul>
       {{else}}
-        <ul><h3>Please Sign In to access this page!</h3></ul>
+        <ul><h3 align="center">Please Sign In to access this page!</h3></ul>
+        <h2 align="center">Sign In</h2>
+    {{> signIn}}
       {{/if}}
-  </div>
 
+  </div>
+  <br><br><br><br><br><br><br><br>
+{{> footer}}
     <!-- Modal -->
     <div class="modal fade" id="clubCreationModal" role="dialog">
       <div class="modal-dialog">
