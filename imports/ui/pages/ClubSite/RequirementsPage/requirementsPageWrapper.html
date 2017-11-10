@@ -1,0 +1,52 @@
+<template name="requirementsPageWrapper">
+
+<div id="wrapper">
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper" style="background-color: orange">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand"> <a href="{{pathFor 'clubSiteHome'}}">
+                        {{#with club}} {{clubName}} {{/with}}
+                    </a>
+
+      </li>
+      <li> <a href="#">Members</a>
+
+      </li>
+      <li> <a href="{{pathFor 'requirementsPage'}}">Requirements</a>
+
+      </li>
+      <li> <a href="#">Events</a>
+
+      </li>
+      <li> <a href="#">Attendance</a>
+
+      </li>
+      <li> <a href="#">Logs</a>
+
+      </li>
+      <li> <a href="#">Settings/Notifications</a>
+
+      </li>
+      <li> <a href="{{pathFor 'homePage'}}">Return to Club Manager Homepage</a>
+
+      </li>
+    </ul>
+  </div>
+  <!-- /#sidebar-wrapper -->
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+           <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-menu-hamburger" id="menu-toggle"></a>
+          {{> requirementsPage}}
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+</template>

@@ -27,3 +27,13 @@ Router.route('/CalPage', {
 	name: 'CalPage',
 	template: 'CalPage'
 });
+
+Router.route('/clubSiteHome', {
+	name: 'clubSiteHome',
+	template: 'clubSiteHome'
+});
+
+Router.route('/requirements', {
+	name: 'requirementsPage',
+	template: 'requirementsPageWrapper'
+});

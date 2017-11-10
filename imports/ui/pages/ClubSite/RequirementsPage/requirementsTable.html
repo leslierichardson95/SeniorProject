@@ -1,0 +1,72 @@
+<template name="requirementsTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Requirement Name</th>
+        <th>Total Events/Points Needed</th>
+        <th>Requirement Description</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each requirements}}
+        {{> requirement}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</template>
+
+<template name="requirement">
+  <tr>
+      <td>{{ requirementName }}</td>
+      <td>{{ totalNeeded }}</td>
+      <td>{{ requirementDescription }}</td>
+    
+     <!-- IF CURRENT USER IS ADMIN SHOW THIS BUTTON -->
+    {{#if isAdmin}}
+      <td>
+        <button type="submit" class="editBtn btn btn-md btn-warning" data-target="#editModal" data-dismiss="modal">Edit</button>
+      </td>
+      <td>
+        <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Delete </button>
+      </td>
+    {{/if}}
+  </tr>
+
+    <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Requirement</h4>
+        </div>
+        <div class="modal-body">
+          <form class="editRequirementForm">
+            <div class="form-group">
+              <label for="editRequirementName">Requirement Name</label>
+              <input type="text" class="form-control" id="editRequirementName" aria-describedby="requirementNameHelp" required>
+              <small id="requirementNameHelp" class="form-text text-muted">i.e Social, General Body Meetings, Service, etc.</small>
+            </div>
+            <div class="form-group">
+              <label for="editTotalNeeded">Total Points/Events Needed</label>
+              <input type="number" class="form-control" id="editTotalNeeded" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="editDescription">Requirement Description (Optional)</label>
+              <textarea class="form-control" id="editDescription" rows="3"></textarea>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="updateBtn btn btn-default">Update Requirement</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

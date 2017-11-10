@@ -1,28 +1,27 @@
-<template name="myClubsPage">
+<template name="membersPage">
   {{> navbar}}
   {{> navbar1}}
   <br><br><br><br><br><br><br><br>
   <div class="container">
     {{#if currentUser}}
-      <h1 align="center">My Clubs</h1>
       <ul align="right">
-        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#clubCreationModal">Create a New Club/Organization</button>
+        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#addMemberModal">Invite a New Member</button>
       </ul>
-      <ul> {{> myClubsTable }} </ul>
+      <ul> {{> membersTable }} </ul>
       {{else}}
         <ul><h3>Please Sign In to access this page!</h3></ul>
       {{/if}}
   </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="clubCreationModal" role="dialog">
+    <div class="modal fade" id="addMemberModal" role="dialog">
       <div class="modal-dialog">
       
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Create a New Club/Organization</h4>
+            <h4 class="modal-title">Invite New Member</h4>
           </div>
           <div class="modal-body">
             <form class="clubForm">
