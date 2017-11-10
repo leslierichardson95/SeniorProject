@@ -1,0 +1,50 @@
+<template name="requirementsPage">
+  <!-- <br><br><br><br><br><br><br><br> -->
+  <div class="container">
+    {{#if currentUser}}
+      <h1 align="center">Club Requirements</h1>
+      <ul align="right">
+        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#addRequirementModal">Add a New Club Requirement</button>
+      </ul>
+      <ul> {{> requirementsTable }} </ul>
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addRequirementModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add a New Club Requirement</h4>
+          </div>
+          <div class="modal-body">
+            <form class="requirementForm">
+              <div class="form-group">
+                <label for="requirementName">Requirement Name</label>
+                <input type="text" class="form-control" id="requirementName" aria-describedby="clubNameHelp" required>
+                <small id="requirementNameHelp" class="form-text text-muted">i.e Social, General Body Meetings, Service, etc.</small>
+              </div>
+              <div class="form-group">
+                <label for="totalNeeded">Total Points/Events Needed</label>
+                <input type="number" class="form-control" id="totalNeeded" min="1" required>
+              </div>
+              <div class="form-group">
+                <label for="description">Requirement Description (Optional)</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-default">Create Requirement</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</template>

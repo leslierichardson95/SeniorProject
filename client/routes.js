@@ -28,6 +28,21 @@ Router.route('/CalPage', {
 	template: 'CalPage'
 });
 
+Router.route('/clubSiteHome', {
+	name: 'clubSiteHome',
+	template: 'clubSiteHome'
+});
+
+Router.route('/members', {
+	name: 'membersPage',
+	template: 'membersPageWrapper'
+});
+
+Router.route('/requirements', {
+	name: 'requirementsPage',
+	template: 'requirementsPageWrapper'
+});
+
 Router.route('/search', {
 	name: 'search',
 	template: 'search'
