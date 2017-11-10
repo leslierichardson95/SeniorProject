@@ -11,8 +11,30 @@
   top:50%;
   position: relative;
   margin: auto;
-  background-color: white;">
+  background-color: white;border-radius:25px">
 
+
+  <div class="page-header clearfix">
+    <h4 class="pull-left" style="position:relative; left: 6%; top: 50px;">Search</h4>
+    <div class="pull-right" >
+      <input type="text" name="search" class="form-control" width="400px" placeholder="Find a club, event, club member" style="position:relative; right: 150px; top: 50px;">
+    </div>
+  </div>
+
+  <ul class="list-group" style="position:relative; right: 0px; top: 50px;">
+    {{#if searching}}
+      {{> loading}}
+    {{else}}
+      {{#each albums}}
+        <li class="list-group-item clearfix">
+          <span class="pull-left">{{title}} by <strong>{{artist}}</strong></span>
+          <span class="pull-right">{{year}}</span>
+        </li>
+      {{else}}
+        <p class="alert alert-warning">Nothing found for {{query}}. Sorry, bub.</p>
+      {{/each}}
+    {{/if}}
+  </ul>
 
 
 
