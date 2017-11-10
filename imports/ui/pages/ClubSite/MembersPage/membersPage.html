@@ -1,9 +1,8 @@
 <template name="membersPage">
-  {{> navbar}}
-  {{> navbar1}}
-  <br><br><br><br><br><br><br><br>
+
   <div class="container">
     {{#if currentUser}}
+      <h1 align="center">Club Requirements</h1>
       <ul align="right">
         <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#addMemberModal">Invite a New Member</button>
       </ul>

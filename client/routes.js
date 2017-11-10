@@ -33,6 +33,11 @@ Router.route('/clubSiteHome', {
 	template: 'clubSiteHome'
 });
 
+Router.route('/members', {
+	name: 'membersPage',
+	template: 'membersPageWrapper'
+});
+
 Router.route('/requirements', {
 	name: 'requirementsPage',
 	template: 'requirementsPageWrapper'
