@@ -78,6 +78,10 @@ let EventsSchema = new SimpleSchema({
     type: String,
     label: 'What time this event will end.',
   },
+  'location': {
+    type: String,
+    label: 'Where the event will take place.',
+  },
   'eventType': {
     type: String,
     label: 'What type of event is this?',

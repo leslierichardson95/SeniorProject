@@ -29,6 +29,7 @@ Template.eventsCalendar.onRendered( () => {
 			element.find('.fc-content').html(
 				`<h4>${ event.title }</h4>
 				<p class="time">${ event.sTime } - ${event.eTime} </p>
+				<p class="location">${event.location} </p>
 				<p class="eventType-${ event.eventType }">#${event.eventType} </p>
 				`
 			);
@@ -119,6 +120,7 @@ Template.addEditEventModal.events({
           start: template.find( '[name="date"]' ).value,
           sTime: template.find( '[name="sTime"]' ).value,
           eTime: template.find( '[name="eTime"]').value,
+          location: template.find('[name="location"]').value,
           eventType: template.find( '[name="eventType"] option:selected' ).value,
           eventValue: template.find( '[name="eventValue"]' ).value,
           attendees: [],
