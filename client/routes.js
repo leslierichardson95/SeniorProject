@@ -43,6 +43,11 @@ Router.route('/requirements', {
 	template: 'requirementsPageWrapper'
 });
 
+Router.route('/clubEvents', {
+	name: 'eventsPage',
+	template: 'eventsPageWrapper'
+});
+
 Router.route('/search', {
 	name: 'search',
 	template: 'search'
