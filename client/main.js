@@ -11,6 +11,9 @@ import '../imports/ui/pages/ClubSite/MembersPage/membersPageWrapper.js';
 import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsPage.js';
 import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsTable.js';
 import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsPageWrapper.js';
+import '../imports/ui/pages/ClubSite/EventsPage/eventsPage.js';
+import '../imports/ui/pages/ClubSite/EventsPage/eventsCalendar.js';
+import '../imports/ui/pages/ClubSite/EventsPage/eventsPageWrapper.js';
 
 import '../imports/ui/pages/CalPage.js';
 

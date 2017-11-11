@@ -1,4 +1,4 @@
-<template name="clubSiteHome">
+<template name="eventsPageWrapper">
 
 <div id="wrapper">
   <!-- Sidebar -->
@@ -39,8 +39,7 @@
       <div class="row">
         <div class="col-lg-12">
            <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-menu-hamburger" id="menu-toggle"></a>
-          <h1>Welcome to {{#with club}} {{clubName}}{{/with}}!</h1>
-          <p>{{#with club}} {{clubDescription}} {{/with}}</p>
+          {{> eventsPage}}
 
         </div>
       </div>
