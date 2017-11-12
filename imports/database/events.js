@@ -44,6 +44,13 @@ Meteor.methods({
 		// Events.update({ _id: eventId }, { $set: {"eventValue": newEventValue } });
 		// Events.update({ _id: eventId }, { $set: {"description": newDescription } });	
 	},
+	'events.addSignUp'(eventId, memberId) {
+		Events.update({_id: eventId }, { $addToSet: {'signedUpMembers': memberId} }, {upsert: true});
+	},
+
+	'events.removeSignUp'(eventId, memberId) {
+		Events.update({_id: eventId }, { $pull: {'signedUpMembers': memberId} }, {upsert: true});
+	},
 
 	'events.addAttendee'(eventId, memberId, name, eventType) {
 		Events.update({_id: eventId }, { $addToSet: {'attendees': memberId,} }, {upsert: true});
@@ -61,47 +68,51 @@ Meteor.methods({
 	}
 });
 
-let EventsSchema = new SimpleSchema({
-  'title': {
-    type: String,
-    label: 'The title of this event.'
-  },
-  'start': {
-    type: String,
-    label: 'When this event will start.'
-  },
-  'sTime': {
-    type: String,
-    label: 'What time this event will start.',
-  },
-  'eTime': {
-    type: String,
-    label: 'What time this event will end.',
-  },
-  'location': {
-    type: String,
-    label: 'Where the event will take place.',
-  },
-  'eventType': {
-    type: String,
-    label: 'What type of event is this?',
-  },
-  'eventValue': {
-    type: String,
-    label: 'How many points is this event worth?',
-  },
-  'description': {
-    type: String,
-    label: 'Optional description of the event',
-  },
-  'attendees': {
-    type: [String],
-    label: 'Which members are attending this event?',
-  },
-  'clubId': {
-    type: String,
-    label: 'What club is this event attached to?',
-  },
-});
+// let EventsSchema = new SimpleSchema({
+//   'title': {
+//     type: String,
+//     label: 'The title of this event.'
+//   },
+//   'start': {
+//     type: String,
+//     label: 'When this event will start.'
+//   },
+//   'sTime': {
+//     type: String,
+//     label: 'What time this event will start.',
+//   },
+//   'eTime': {
+//     type: String,
+//     label: 'What time this event will end.',
+//   },
+//   'location': {
+//     type: String,
+//     label: 'Where the event will take place.',
+//   },
+//   'eventType': {
+//     type: String,
+//     label: 'What type of event is this?',
+//   },
+//   'eventValue': {
+//     type: String,
+//     label: 'How many points is this event worth?',
+//   },
+//   'description': {
+//     type: String,
+//     label: 'Optional description of the event',
+//   },
+//   'signedUpMembers': {
+//   	type: [String],
+//   	label: 'Which members plan on attending this event?'
+//   },
+//   'attendees': {
+//     type: [String],
+//     label: 'Which members attended this event?',
+//   },
+//   'clubId': {
+//     type: String,
+//     label: 'What club is this event attached to?',
+//   },
+// });
 
-Events.attachSchema( EventsSchema );
+// Events.attachSchema( EventsSchema );

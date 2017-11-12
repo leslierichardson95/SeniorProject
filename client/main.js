@@ -14,6 +14,9 @@ import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsPageWrapper.js
 import '../imports/ui/pages/ClubSite/EventsPage/eventsPage.js';
 import '../imports/ui/pages/ClubSite/EventsPage/eventsCalendar.js';
 import '../imports/ui/pages/ClubSite/EventsPage/eventsPageWrapper.js';
+import '../imports/ui/pages/ClubSite/EventSignUpPage/eventSignUpPage.js';
+import '../imports/ui/pages/ClubSite/EventSignUpPage/eventSignUpTable.js';
+import '../imports/ui/pages/ClubSite/EventSignUpPage/eventSignUpPageWrapper.js';
 
 import '../imports/ui/pages/CalPage.js';
 

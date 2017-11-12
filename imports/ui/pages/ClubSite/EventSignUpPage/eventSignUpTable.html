@@ -1,0 +1,43 @@
+<template name="eventSignUpTable">
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Location</th>
+        <th>Event Type</th>
+        <th>Event Value</th>
+        <th>Sign Up</th>
+        <th>Send Event Notification?</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each events}}
+        {{> eventSignUp}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+  <template name="eventSignUp">
+  <tr>
+      <td>{{ title }}</td>
+      <td>{{ description }}</td>
+      <td>{{ start }}</td>
+      <td>{{ sTime }}</td>
+      <td>{{ eTime }}</td>
+      <td>{{ location }}</td>
+      <td>{{ eventType }}</td>
+      <td>{{ eventValue }}</td>
+        <td align="center">
+          <input class="signUpToggle" type="checkbox" data-toggle="toggle">
+        </td>
+        <td align="center">
+          <input class="notificationToggle" type="checkbox" data-toggle="toggle" data-on="yes" data-off="no">
+        </td>
+  </tr>
+</template>
