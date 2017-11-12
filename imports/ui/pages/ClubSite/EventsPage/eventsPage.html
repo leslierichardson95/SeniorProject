@@ -1,0 +1,12 @@
+<template name="eventsPage">
+
+  <div class="container">
+    {{#if currentUser}}
+      <h1 align="center">Club Events</h1>
+      <ul> {{> eventsCalendar }} </ul>
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+
+</template>
