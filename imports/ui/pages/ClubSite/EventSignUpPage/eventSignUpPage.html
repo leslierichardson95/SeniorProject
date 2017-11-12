@@ -1,0 +1,11 @@
+<template name="eventSignUpPage">
+
+  <div class="container">
+    {{#if currentUser}}
+      <h1 align="center">Event Sign-Ups</h1>
+      <ul> {{> eventSignUpTable }} </ul>
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+</template>

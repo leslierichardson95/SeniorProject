@@ -32,6 +32,14 @@ Meteor.methods({
 		Members.update(memberId, { $set: {"admin": newAdmin } });
 	},
 
+	'members.updateStatus'(memberId, newStatus) {
+		Members.update(memberId, { $set: {"status":newStatus } });
+	},
+
+	'members.updatePosition'(memberId, newPosition) {
+		Members.update(memberId, { $set: {"position":newPosition } });
+	},
+
 	'members.addRequirement'(requirementName, clubSiteId) {
 		Members.update({clubId: clubSiteId}, 
 			{ $addToSet: 

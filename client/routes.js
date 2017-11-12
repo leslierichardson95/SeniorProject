@@ -48,6 +48,11 @@ Router.route('/clubEvents', {
 	template: 'eventsPageWrapper'
 });
 
+Router.route('/eventSignUps', {
+	name: 'eventSignUpPage',
+	template: 'eventSignUpPageWrapper'
+});
+
 Router.route('/search', {
 	name: 'search',
 	template: 'search'
