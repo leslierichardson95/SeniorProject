@@ -1,5 +1,6 @@
 import '../imports/ui/pages/homePage.js';
-
+import '../imports/ui/pages/MyProfile/myProfilePage.js';
+import '../imports/ui/pages/MyProfile/inviteCodePage.js';
 import '../imports/ui/pages/MyClubsPage/myClubsPage.js';
 import '../imports/ui/pages/MyClubsPage/myClubsTable.js';
 

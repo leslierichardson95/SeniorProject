@@ -40,7 +40,7 @@
 
 <template name="navLoginInfo">
 	{{#if currentUser}}
-		<li style= "position: fixed; left: 1020px; top:18px;font-size:110%;color:black;white-space:nowrap;" ><span class="glyphicon glyphicon-user"></span><b>  Hi {{firstName}}!</b></li>
+		<a href="{{pathFor 'myProfilePage'}}"><li style= "position: fixed; left: 1020px; top:18px;font-size:110%;color:black;white-space:nowrap;" ><span class="glyphicon glyphicon-user"></span><b>  Hi {{firstName}}!</b></li></a>
 		<li style= "position: fixed; left: 88%; top:7px;font-size:110%;color:black;white-space:nowrap;"><a href="#" class="logout" style="color:black;" ><span class="glyphicon glyphicon-log-out"></span><b>  Sign Out</b></a></li>
 	{{else}}
 		<li style= "position: fixed; left: 1070px; top:7px;font-size:110%;color:black;white-space:nowrap;" ><a href="{{pathFor 'signInPage' hash='inmark'}}" style="color:black;" ><span class="glyphicon glyphicon-log-in"></span><b>  Sign In</b></a></li>
