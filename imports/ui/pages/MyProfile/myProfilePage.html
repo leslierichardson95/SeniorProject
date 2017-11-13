@@ -1,0 +1,68 @@
+<template name="myProfilePage">
+  {{> navbar}}
+  {{> navbar1}}
+  <br><br><br><br><br><br><br><br>
+  <div class="container" style="width: 1000px;height:400px; top: 50%; position:relative;margin:auto;background-color:white;border-radius:25px">
+    {{#if currentUser}}
+      <h1 align="center">My Profile</h1>
+      {{> myProfileNavbar}}
+      <h2 align="center">{{userInfo.profile.firstName}} {{userInfo.profile.lastName}}</h2>
+      <p align="center">Email: {{userEmail}}</p>
+      <p align="center">Phone Number: {{userInfo.profile.phoneNumber}}</p>
+      <div align="center"><button align="center" class="btn btn-default" data-toggle="modal" data-target="#editProfileModal">Edit Profile</button></div>
+      {{else}}
+        <ul><h3 align="center">Please Sign In to access this page!</h3></ul>
+        <h2 align="center">Sign In</h2>
+    {{> signIn}}
+      {{/if}}
+
+  </div>
+  <br><br><br><br><br><br><br><br>
+{{> footer}}
+
+<!-- Modal -->
+    <div class="modal fade" id="editProfileModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Edit Profile</h4>
+          </div>
+          <div class="modal-body">
+            <form class="profileForm">
+              <div class="form-group">
+                <label for="editFirstName">First Name</label>
+                <input type="text" class="form-control" id="editFirstName" value="{{userInfo.profile.firstName}}">
+              </div>
+              <div class="form-group">
+                <label for="editLastName">LastName</label>
+                <input type="text" class="form-control" id="editLastName" value="{{userInfo.profile.lastName}}">
+              </div>
+              <div class="form-group">
+                <label for="editEmail">Email</label>
+                <input type="text" class="form-control" id="editEmail" value="{{userEmail}}">
+              </div>
+              <div class="form-group">
+                <label for="editPhoneNumber">Phone Number</label>
+                <input type="text" class="form-control" id="editPhoneNumber" value="{{userInfo.profile.phoneNumber}}">
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="updateBtn btn btn-default">Edit Profile</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</template>
+
+<template name="myProfileNavbar">
+  <ul class="nav nav-pills">
+    <li role="presentation" id="editProfileTab"><a href="{{pathFor route='myProfilePage'}}">Edit Contact Info</a></li>
+    <li role="presentation" id="inviteCodeTab"><a href="{{pathFor route='inviteCodePage'}}">Enter Invite Code</a></li>
+  </ul>
+</template>

@@ -40,6 +40,13 @@ Meteor.methods({
 		Members.update(memberId, { $set: {"position":newPosition } });
 	},
 
+	'members.updateUserInfo'(memberId, newFirstName, newLastName, newEmail, newPhoneNumber) {
+		Members.update(memberId, {$set: {'firstName': newFirstName}});
+		Members.update(memberId, {$set: {'lastName': newLastName}});
+		Members.update(memberId, {$set: {'email': newEmail}});
+		Members.update(memberId, {$set: {'phoneNumber': newPhoneNumber}});
+	},
+
 	'members.addRequirement'(requirementName, clubSiteId) {
 		Members.update({clubId: clubSiteId}, 
 			{ $addToSet: 

@@ -28,6 +28,16 @@ Router.route('/CalPage', {
 	template: 'CalPage'
 });
 
+Router.route('/myProfile', {
+	name: 'myProfilePage',
+	template: 'myProfilePage'
+});
+
+Router.route('/inviteCode', {
+	name: 'inviteCodePage',
+	template: 'inviteCodePage'
+});
+
 Router.route('/clubSiteHome', {
 	name: 'clubSiteHome',
 	template: 'clubSiteHome'
