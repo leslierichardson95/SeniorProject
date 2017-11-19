@@ -1,6 +1,11 @@
 <template name="eventsPage">
 
-  <div class="container">
+  <div class="container" style="width: 1000px;
+  height: 930px;
+  top:20px;
+  position: relative;
+  margin: auto;
+  background-color: white;">
     {{#if currentUser}}
       <h1 align="center">Club Events</h1>
       <ul> {{> eventsCalendar }} </ul>
@@ -8,5 +13,5 @@
         <ul><h3>Please Sign In to access this page!</h3></ul>
       {{/if}}
   </div>
-
+ <br><br>
 </template>
