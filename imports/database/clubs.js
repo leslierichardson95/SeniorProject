@@ -25,6 +25,7 @@ Meteor.methods({
 		var firstName = Meteor.user().profile.firstName;
 		var lastName = Meteor.user().profile.lastName;
 		var email = Meteor.user().emails[0].address;
+		var phoneNumber = Meteor.user().profile.phoneNumber;
 
 		// insert default member (the user who created the club) 
 		Meteor.call('members.insert', 
@@ -32,7 +33,7 @@ Meteor.methods({
 			firstName,
 			lastName,
 			email,
-			'',
+			phoneNumber,
 			'Admin/Active',
 			'General Member',
 			clubID,

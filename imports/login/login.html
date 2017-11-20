@@ -23,6 +23,9 @@
 		<div class="form-group">
 			<input type="submit" class="btn btn-warning" style="width:30%; position: absolute;left:410px;top:80%;background-color: #FA4616" value="Sign Up" >
 		</div>
+		<div class="form-group">
+			<a href="{{pathFor 'signInPage'}}" style="position: absolute;left:450px;top:90%;">Already signed up?  Click here to sign in! </a>
+		</div>
 	</form>
 </template>
 
@@ -35,6 +38,9 @@
 			<input type="password" class="form-control" style="width:40%;position: absolute;left:320px;top:48%;" name="signInPassword" required  size="40">
 		</div>
 		<input type="submit" class="btn btn-warning" style="width:25%;position: absolute;left:390px;top:62%; background-color: #FA4616;" value="Sign In">
+		<div class="form-group">
+			<a href="{{pathFor 'signUpPage'}}" style="position: absolute;left:400px;top:72%;">Not signed up?  Click here to sign up! </a>
+		</div>
 	</form>
 </template>
 
