@@ -1,4 +1,4 @@
-<template name="membersPage">
+<template name="pendingMembers">
 
   <div class="container" style="width: 1100px;
   height: 580px;
@@ -7,20 +7,20 @@
   margin: auto;
   background-color: white;">
     {{#if currentUser}}
-      <h1 align="center">Current Club Members</h1>
+      <h1 align="center">Pending Club Members</h1>
       {{> membersNavbar}}
       {{#if isAdmin}}
       <ul align="right">
         <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#inviteMemberModal">Invite a New Member</button>
       </ul>
       {{/if}}
-      <ul> {{> membersTable }} </ul>
+      <ul> {{> pendingMembersTable }} </ul>
       {{else}}
         <ul><h3>Please Sign In to access this page!</h3></ul>
       {{/if}}
   </div>
 
-    <!-- Modal -->
+      <!-- Modal -->
     <div class="modal fade" id="inviteMemberModal" role="dialog">
       <div class="modal-dialog">
       
@@ -56,9 +56,31 @@
 
 </template>
 
-<template name="membersNavbar">
-  <ul class="nav nav-pills">
-    <li role="presentation" id="currentMembersTab"><a href="{{pathFor route='membersPage'}}">Current Members</a></li>
-    <li role="presentation" id="pendingMembersTab"><a href="{{pathFor route='pendingMembers'}}">Pending Members</a></li>
-  </ul>
+<template name="pendingMembersTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each pendingMembers}}
+        {{> pendingMember}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</template>
+
+<template name="pendingMember">
+  <tr>
+      <td>{{ name }}</td>
+      <td>{{ email }}</td>
+      {{#if isAdmin}}
+        <td>
+          <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Remove Invite</button>
+        </td>
+      {{/if}} 
+  </tr>
 </template>
