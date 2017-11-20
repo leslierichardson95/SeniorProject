@@ -8,9 +8,11 @@
   background-color: white;">
     {{#if currentUser}}
       <h1 align="center">Club Members</h1>
+      {{#if isAdmin}}
       <ul align="right">
-        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#addMemberModal">Invite a New Member</button>
+        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#inviteMemberModal">Invite a New Member</button>
       </ul>
+      {{/if}}
       <ul> {{> membersTable }} </ul>
       {{else}}
         <ul><h3>Please Sign In to access this page!</h3></ul>
@@ -18,7 +20,7 @@
   </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="addMemberModal" role="dialog">
+    <div class="modal fade" id="inviteMemberModal" role="dialog">
       <div class="modal-dialog">
       
         <!-- Modal content-->
@@ -28,17 +30,21 @@
             <h4 class="modal-title">Invite New Member</h4>
           </div>
           <div class="modal-body">
-            <form class="clubForm">
+            <form class="inviteForm">
               <div class="form-group">
-                <label for="clubName">Club Name</label>
-                <input type="text" class="form-control" id="clubName" aria-describedby="clubNameHelp" required>
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" required>
               </div>
               <div class="form-group">
-                <label for="clubDescription" alt-text="Write a brief description for your club">Club Description (Optional)</label>
-                <textarea type="clubDescription" class= "form-control" id= "clubDescription" aria-describedby="clubDescriptionHelp"></textarea>
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" required>
               </div>
               <div class="btn-group">
-                <button type="submit" class="btn btn-default">Create Club!</button>
+                <button type="submit" class="inviteBtn btn btn-default">Send Invite!</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </div>
             </form>
