@@ -48,6 +48,11 @@ Router.route('/members', {
 	template: 'membersPageWrapper'
 });
 
+Router.route('/pendingMembers', {
+	name: 'pendingMembers',
+	template: 'pendingMembersTableWrapper'
+});
+
 Router.route('/requirements', {
 	name: 'requirementsPage',
 	template: 'requirementsPageWrapper'
