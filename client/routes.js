@@ -68,6 +68,11 @@ Router.route('/eventSignUps', {
 	template: 'eventSignUpPageWrapper'
 });
 
+Router.route('/attendance', {
+	name: 'attendancePage',
+	template: 'attendancePageWrapper'
+});
+
 Router.route('/search', {
 	name: 'search',
 	template: 'search'

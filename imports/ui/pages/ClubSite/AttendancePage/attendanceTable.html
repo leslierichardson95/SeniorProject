@@ -1,0 +1,70 @@
+<template name="attendanceTable">
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Location</th>
+        <th>Event Type</th>
+        <th>Event Value</th>
+        <th>Sign In</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each events}}
+        {{> eventSignIn}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+  <template name="eventSignIn">
+  <tr>
+      <td>{{ title }}</td>
+      <td>{{ description }}</td>
+      <td>{{ start }}</td>
+      <td>{{ sTime }}</td>
+      <td>{{ eTime }}</td>
+      <td>{{ location }}</td>
+      <td>{{ eventType }}</td>
+      <td>{{ eventValue }}</td>
+        <td>
+          <button type="submit" class="signInBtn btn btn-md btn-primary" data-toggle="modal" data-target="#memberSignInModal">Sign In!</button>
+        </td>
+  </tr>
+
+      <!-- Member Sign-in Modal -->
+  <div class="modal fade" id="memberSignInModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <h4 class="modal-title">Member Sign-In</h4>
+          <p>Please select your name to check in for the event.</p>
+        </div>
+
+        <div class="modal-body">
+          <div class="list-group">
+            {{#each members}}
+              <button class="memberBtn list-group-item {{selectedClass}}" id="memberNameBtn">{{ firstName }} {{lastName}}</button>
+            {{/each}}
+          </div>
+        </div>
+        {{#if selectedAttendee}}
+        <div class="modal-footer">
+          <div class="btn-group">
+            <button type="button" id="confirmSignInBtn" class="confirmSignInBtn btn btn-default">Sign In</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+    {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
