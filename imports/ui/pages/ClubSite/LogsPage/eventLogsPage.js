@@ -23,7 +23,10 @@ Template.eventLogsTable.helpers({
 	'eventAttended': function(memberID, eventName) {
 		//check if name === a name in event participants list 
 		//if yes, return true, else return false
-		if (Events.find({attendees: {$in: [memberID]}, eventName: eventName}, {eventName: 1, _id: 0}).count() >= 1) {
+		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+		console.log(memberID);
+		console.log(Events.find({attendees: {$in: [memberID]}, title: eventName}).fetch());
+		if (Events.find({clubId: ClubSiteId, attendees: {$in: [memberID]}, title: eventName}, {title: 1, _id: 0}).count() >= 1) {
 			return true;
 		}
 		return false;
