@@ -73,6 +73,16 @@ Router.route('/attendance', {
 	template: 'attendancePageWrapper'
 });
 
+Router.route('/eventLogs', {
+	name: 'eventLogsPage',
+	template: 'eventLogsPageWrapper'
+});
+
+Router.route('/requirementLogs', {
+	name: 'requirementLogsPage',
+	template: 'requirementLogsPageWrapper'
+});
+
 Router.route('/search', {
 	name: 'search',
 	template: 'search'
