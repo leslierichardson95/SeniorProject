@@ -6,19 +6,57 @@
 
 <br><br><br><br><br><br><br><br>
 <div id="searchmark"></div> 
-<div id="aboutcontainer" style="width: 1000px;
+<div id="container" style="width: 1000px;
   height: 500px;
   top:50%;
   position: relative;
   margin: auto;
-  background-color: white;">
+  background-color: white;
+  border-radius:25px;">
+	<h1 align="center">Search Clubs</h1>	
+	<div id="container" style="padding-left: 5%">
+		<input type="text" class="searchBox" placeholder="Search Clubs"></div>
+	<br><br>
+	<ul>{{> searchClubsTable}}</ul>
+</div>
 
-
-
-
-
-</div>  
 <br><br><br><br><br><br><br><br>
 {{> footer}}
 
 </template>	
+
+<template name="searchClubsTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Club Name</th>
+        <th>Club Description</th>
+        <th>Creation Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each clubs}}
+        {{> searchClub}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</template>
+
+<template name="searchClub">
+  <tr>
+      <td>{{ clubName }}</td>
+      <td>{{ clubDescription }}</td>
+      <td>{{ creationDate }}</td>
+      {{#if isMember}}
+      	<td>
+      		<button type="button" class="enterBtn btn btn-md btn-success" data-dismiss="modal">Enter Club Site</button>
+      	</td>
+      {{else}}
+      	<td>
+      		<button type="button" class="requestInviteBtn btn btn-md btn-primary" data-dismiss="modal">Send Join Request</button>
+      	</td>
+      {{/if}}
+  </tr>
+</template>
