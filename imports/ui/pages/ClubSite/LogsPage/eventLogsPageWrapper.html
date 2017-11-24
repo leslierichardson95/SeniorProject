@@ -1,4 +1,4 @@
-<template name="eventSignUpPageWrapper">
+<template name="eventLogsPageWrapper">
 
 <div id="wrapper">
   <!-- Sidebar -->
@@ -17,6 +17,7 @@
       <li style="border-top: 1px solid #CF7700;"> <a href="{{pathFor 'eventLogsPage'}}" style="color:black;">Logs <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="left:146px;"></span></a></li>
       <li style="border-top: 1px solid #CF7700;"> <a href="#" style="color:black;">Settings/Notifications<span class="glyphicon glyphicon-wrench" aria-hidden="true" style="left:48px;"></span></a></li>
       <li style="border-top: 1px solid #CF7700;border-bottom: 1px solid #CF7700;"> <a href="{{pathFor 'homePage'}}" style="color:black;">Return to Club Manager<span class="glyphicon glyphicon-repeat" aria-hidden="true" style="left:32px;"></span></a></li>
+
     </ul>
   </div>
   <!-- /#sidebar-wrapper -->
@@ -26,7 +27,7 @@
       <div class="row">
         <div class="col-lg-12">
            <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-menu-hamburger" id="menu-toggle"></a>
-          {{> eventSignUpPage}}
+          {{> eventLogsPage}}
 
         </div>
       </div>

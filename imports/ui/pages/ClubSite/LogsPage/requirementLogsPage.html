@@ -1,0 +1,42 @@
+<template name="requirementLogsPage">
+	<div class="container" style="width: 1100px;
+  height: 580px;
+  top:20px;
+  position: relative;
+  margin: auto;
+  background-color: white;">
+    {{#if currentUser}}
+      <h1 align="center">Requirement Logs</h1>
+      {{> logsNavbar}}
+      <ul> {{> requirementLogsTable }} </ul>
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+</template>
+
+<template name="requirementLogsTable">
+	<ul>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Member</th>
+					{{#each requirements}}
+					<th>Current {{ requirementName }} Points</th>
+					{{/each}}
+					<!-- <th>Completed By</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				{{#each members}}
+					<tr>
+						<td>{{ lastName }}, {{ firstName }}</td>
+						{{#each requirements}}
+							<td>{{ memberPoints ../_id requirementName }}</td>
+						{{/each}}
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</ul>
+</template>

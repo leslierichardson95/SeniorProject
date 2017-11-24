@@ -23,6 +23,10 @@ import '../imports/ui/pages/ClubSite/EventSignUpPage/eventSignUpPageWrapper.js';
 import '../imports/ui/pages/ClubSite/AttendancePage/attendancePage.js';
 import '../imports/ui/pages/ClubSite/AttendancePage/attendanceTable.js';
 import '../imports/ui/pages/ClubSite/AttendancePage/attendancePageWrapper.js';
+import '../imports/ui/pages/ClubSite/LogsPage/eventLogsPage.js';
+import '../imports/ui/pages/ClubSite/LogsPage/eventLogsPageWrapper.js';
+import '../imports/ui/pages/ClubSite/LogsPage/requirementLogsPage.js';
+import '../imports/ui/pages/ClubSite/LogsPage/requirementLogsPageWrapper.js';
 
 
 import '../imports/ui/pages/CalPage.js';

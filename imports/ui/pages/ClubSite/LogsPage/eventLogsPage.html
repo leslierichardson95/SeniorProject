@@ -1,0 +1,52 @@
+<template name="eventLogsPage">
+	<div class="container" style="width: 1100px;
+  height: 580px;
+  top:20px;
+  position: relative;
+  margin: auto;
+  background-color: white;">
+    {{#if currentUser}}
+      <h1 align="center">Event Logs</h1>
+      {{> logsNavbar}}
+      <ul> {{> eventLogsTable }} </ul>
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+</template>
+
+<template name="eventLogsTable">
+	<ul>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Member</th>
+					{{#each events}}
+						<th>{{title}}</th>
+					{{/each}}
+				</tr>
+			</thead>
+			<tbody>
+				{{#each members}}
+					<tr>
+						<td>{{ firstName }} {{ lastName }}</td>
+						{{#each events}}
+							{{#if eventAttended ../_id eventName}}
+								<td><span class="glyphicon glyphicon-ok"></span></td>
+							{{else}}
+								<td></td>
+							{{/if}}
+						{{/each}}
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</ul>
+</template>
+
+<template name="logsNavbar">
+  <ul class="nav nav-pills">
+    <li role="presentation" id="eventLogsTab"><a href="{{pathFor route='eventLogsPage'}}">Event Logs</a></li>
+    <li role="presentation" id="requirementLogsTab"><a href="{{pathFor route='requirementLogsPage'}}">Requirement Logs</a></li>
+  </ul>
+</template>
