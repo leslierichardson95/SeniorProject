@@ -45,7 +45,6 @@ Template.requirement.events({
 	},
 
 	'click .editBtn'() {
-		console.log(this);
 		rowID = this._id;
 		oldRequirementName = this.requirementName;
 		
