@@ -14,6 +14,27 @@ if (Meteor.isServer) {
 
 			// store generated invite code until the invitee uses it
 			Meteor.call('inviteCodes.insert', inviteCode, clubSiteId, name, email);
-		}
+		},
+
+		'emailJoinAccept': function(name, email, clubName) {
+			Email.send({
+				from: 'postmaster@sandbox66c393fbdd0e4f7dabb9581c7adfcaed.mailgun.com',
+				to: email,
+				subject: 'Gator Club Manager: Join Request Accepted!',
+				html: '<p>' + name + ',<br><br>Congrats! You are now a member of ' + clubName + 
+				'! You can enter your club site via the <strong>My Clubs</strong> page. </p>'
+			});
+			
+		},
+
+		'emailJoinDecline': function(name, email, clubName) {
+			Email.send({
+				from: 'postmaster@sandbox66c393fbdd0e4f7dabb9581c7adfcaed.mailgun.com',
+				to: email,
+				subject: 'Gator Club Manager: Join Request Denied',
+				html: '<p>' + name + ',<br><br>Unfortunately, your request to join ' + clubName + 
+				' has been declined.</p>'
+			});
+		},
 	});
 }

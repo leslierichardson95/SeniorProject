@@ -55,6 +55,12 @@ Meteor.methods({
 	'clubs.remove'(clubId) {
 		check(clubId, String);
 		Members.remove({clubId: clubId}); // remove all members in the specified club
+		Requirements.remove({clubId: clubId}); // remove all requirements in specified club
+		Events.remove({clubId: clubId}); //remove all events in specified club
+		ClubSiteIds.remove({clubId: clubId}); //remove relevant club ids
+		InviteCodes.remove({clubId: clubId}); // remove relevant club invite codes
+		JoinRequests.remove({clubId: clubId}); // remove relevant join requests
+		Announcements.remove({clubId: clubId}); // remove all relevant club announcements
 		Clubs.remove(clubId); // remove the club
 	}
 });

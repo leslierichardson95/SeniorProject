@@ -16,7 +16,7 @@ var ClubSiteId;
 Template.eventSignUpTable.helpers({
 	events() {
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
-		return Events.find({clubId: ClubSiteId});
+		return Events.find({clubId: ClubSiteId}, {sort: {start: 1, sTime: 1}});
 	}
 });
 

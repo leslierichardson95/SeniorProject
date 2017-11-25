@@ -65,12 +65,15 @@ Template.joinRequest.events({
 			this.clubId,
 			false
 		);
+		var clubName = Clubs.findOne({clubId: this.clubId}).clubName;
 		Meteor.call('joinRequests.remove', this._id);
+		Meteor.call('emailJoinAccept', this.firstName+" "+this.lastName, this.email, this.clubName);
 		Bert.alert('Join request accepted!', 'success');
 	},
 
 	'click .declineBtn'() {
 		Meteor.call('joinRequests.remove', this._id);
+		Meteor.call('emailJoinDecline', this.firstName+" "+this.lastName, this.email, this.clubName);
 		Bert.alert('Join request denied.', 'danger');
 	},
 });

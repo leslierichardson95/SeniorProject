@@ -35,7 +35,13 @@
            <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-menu-hamburger" id="menu-toggle"></a>
           <h1>Welcome to {{#with club}} {{clubName}}{{/with}}!</h1>
           <p>{{#with club}} {{clubDescription}} {{/with}}</p>
-
+          <br>
+          <h2 align="left">Announcements</h2>
+          <!-- <ul align="left"> -->
+            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createAnnouncementModal">Make an Announcement</button>
+          <!-- </ul> -->
+          <br>
+          {{> announcementsTable}}
         </div>
       </div>
     </div>
@@ -45,4 +51,59 @@
 </div>
 <!-- /#wrapper -->
 
+<!-- Modal -->
+    <div class="modal fade" id="createAnnouncementModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Make an Announcement</h4>
+          </div>
+          <div class="modal-body">
+            <form class="announcementForm">
+              <div class="form-group">
+                <label for="announcement" alt-text="Write a brief description for your club">Announcement</label>
+                <textarea type="announcement" class= "form-control" id= "announcement"></textarea>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-default">Post Announcement</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</template>
+
+<template name="announcementsTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date Posted</th>
+        <th>Announcement</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each announcements}}
+        {{> announcement}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="announcement">
+  <tr>
+      <td>{{ datePosted }}</td>
+      <td>{{ announcement }}</td>
+      {{#if isAdmin}}
+        <td>
+          <button type="button" class="deleteBtn btn btn-md btn-danger" data-dismiss="modal">Remove Announcement</button>
+        </td>
+      {{/if}} 
+  </tr>
 </template>
