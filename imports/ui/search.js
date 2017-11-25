@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Clubs } from '../database/clubs.js';
 import { ClubSiteIds } from '../database/clubSiteIds.js';
+import { JoinRequests } from '../database/joinRequests.js';
 import { Members } from '../database/members.js';
 
 import './search.html';
@@ -40,4 +41,21 @@ Template.searchClub.events({
 		}
 		Router.go('/clubSiteHome'); // go to the corresponding club site page
 	},
+
+	'click .requestInviteBtn' () {
+		if ( JoinRequests.find({clubId: this._id, userId: Meteor.userId()}).count() >= 1 ) {
+			swal('You have already sent a join request for this club!', '', 'error');
+		}
+		else {
+			Meteor.call('joinRequests.insert',
+				this._id,
+				Meteor.user().profile.firstName,
+				Meteor.user().profile.lastName,
+				Meteor.user().emails[0].address,
+				Meteor.userId()
+			);
+			swal('Join Club Request Sent!', '', 'success');	
+		}
+		
+	}
 });
