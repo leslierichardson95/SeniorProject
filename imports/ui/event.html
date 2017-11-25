@@ -10,34 +10,34 @@
   background-color: orange;"><!---eventcontainer1-->
 <a href="{{pathFor route='CalPage'}}"><button type="button" class="btn btn-primary" style= " position: absolute;left: 3%; top: 3%;font-size:120%">Event Calendar</button></a>
   
-  <h4 style="display:inline;position: absolute;left: 3%; top: 11%;"> Current Event </h4>
-  <h4 style="display:inline;position: absolute;left: 53%; top: 11%;"> Past Event </h4>
+  <!-- <h4 style="display:inline;position: absolute;left: 3%; top: 11%;"> Upcoming Events </h4> -->
+  <!-- <h4 style="display:inline;position: absolute;left: 53%; top: 11%;"> Past Events </h4> -->
 
 
   <div class="tab" style= " position: absolute;left: 3%; top: 17%;">
-    <button class="tablinks" onclick="openTab(event, 'Type1')">Type1</button>
-    <button class="tablinks" onclick="openTab(event, 'Type2')">Type2</button>
-    <button class="tablinks" onclick="openTab(event, 'Type3')">Type3</button>
+    <button class="tablinks" onclick="openTab(event, 'Type1')">Upcoming Events</button>
+<!--     <button class="tablinks" onclick="openTab(event, 'Type2')">Type2</button>
+    <button class="tablinks" onclick="openTab(event, 'Type3')">Type3</button> -->
   </div>
 
 
   <div class="tab" style= " position: absolute;left: 53%; top: 17%;">
-    <button class="tablinks1" onclick="openTab1(event, 'Type1Past')">Type1</button>
-    <button class="tablinks1" onclick="openTab1(event, 'Type2Past')">Type2</button>
-    <button class="tablinks1" onclick="openTab1(event, 'Type3Past')">Type3</button>
+    <button class="tablinks1" onclick="openTab1(event, 'Type1Past')">Past Events</button>
+<!--     <button class="tablinks1" onclick="openTab1(event, 'Type2Past')">Type2</button>
+    <button class="tablinks1" onclick="openTab1(event, 'Type3Past')">Type3</button> -->
   </div>
 
 <!---current events -->
   <div id="Type1" class="tabcontent" style= " position: absolute;left: 3%; top: 26%;">
-    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+<!--     <h4 style="display:inline;position: absolute;">Club Name</h4>  
     <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
     <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
     <br><br>
-    <p>London is the capital city of England.</p>
+    <p>London is the capital city of England.</p> -->
+    {{> upcomingEventsTable}}
   </div>
-
   
-  <div id="Type2" class="tabcontent" style= " position: absolute;left: 3%; top: 26%;">
+<!--   <div id="Type2" class="tabcontent" style= " position: absolute;left: 3%; top: 26%;">
     <h4 style="display:inline;position: absolute;">Club Name</h4>  
     <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
     <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
@@ -51,18 +51,19 @@
     <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
     <br><br>
     <p>Tokyo is the capital of Japan.</p>
-  </div>
+  </div> -->
 
-  <!---past events -->
+  <!--past events -->
   <div id="Type1Past" class="tabcontent1" style= " position: absolute;left: 53%; top: 26%;">
-    <h4 style="display:inline;position: absolute;">Club Name</h4>  
+    <!-- <h4 style="display:inline;position: absolute;">Club Name</h4>  
     <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
     <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
     <br><br>
-    <p>London is the capital city of England.</p>
+    <p>London is the capital city of England.</p> -->
+    {{> pastEventsTable}}
   </div>
 
-  <div id="Type2Past" class="tabcontent1" style= " position: absolute;left: 53%; top: 26%;">
+  <!-- <div id="Type2Past" class="tabcontent1" style= " position: absolute;left: 53%; top: 26%;">
     <h4 style="display:inline;position: absolute;">Club Name</h4>  
     <h4 style="display:inline;position: absolute;left: 33%;">Event Name</h4>
     <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
@@ -76,7 +77,7 @@
     <h4 style="display:inline;position: absolute;left: 60%;">Date</h4>  
     <br><br>
     <p>Tokyo is the capital of Japan.</p>
-  </div>
+  </div> -->
 
 	<script>
 	document.getElementsByClassName('tablinks')[0].click()
@@ -110,9 +111,59 @@
 	    document.getElementById(cityName).style.display = "block";
 	    evt.currentTarget.className += " active";
 	}
-	</script>
+	</script> 
 
 </div><!---end of eventcontainer-->
 
 
 </template>	
+
+<template name="upcomingEventsTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Club Name</th>
+        <th>Event Name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each upcomingEvents}}
+        {{> upcomingEvent}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="upcomingEvent">
+  <tr>
+      <td>{{ club.clubName }}</td>
+      <td>{{ title }}</td>
+      <td>{{ start }}</td>
+  </tr>
+</template>
+
+<template name="pastEventsTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Club Name</th>
+        <th>Event Name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each pastEvents}}
+        {{> pastEvent}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="pastEvent">
+  <tr>
+      <td>{{ club.clubName }}</td>
+      <td>{{ title }}</td>
+      <td>{{ start }}</td>
+  </tr>
+</template>
