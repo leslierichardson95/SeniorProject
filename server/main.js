@@ -4,5 +4,6 @@ import '../imports/database/requirements.js';
 import '../imports/database/events.js';
 import '../imports/database/clubSiteIds.js';
 import '../imports/database/inviteCodes.js';
+import '../imports/database/joinRequests.js';
 import '../imports/emails.js';
 import './index.js';

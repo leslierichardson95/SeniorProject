@@ -10,6 +10,8 @@ import '../imports/ui/pages/ClubSite/MembersPage/membersPage.js';
 import '../imports/ui/pages/ClubSite/MembersPage/membersTable.js';
 import '../imports/ui/pages/ClubSite/MembersPage/pendingMembersTable.js';
 import '../imports/ui/pages/ClubSite/MembersPage/pendingMembersTableWrapper.js';
+import '../imports/ui/pages/ClubSite/MembersPage/joinRequestsTable.js';
+import '../imports/ui/pages/ClubSite/MembersPage/joinRequestsWrapper.js';
 import '../imports/ui/pages/ClubSite/MembersPage/membersPageWrapper.js';
 import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsPage.js';
 import '../imports/ui/pages/ClubSite/RequirementsPage/requirementsTable.js';

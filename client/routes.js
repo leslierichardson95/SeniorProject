@@ -53,6 +53,11 @@ Router.route('/pendingMembers', {
 	template: 'pendingMembersTableWrapper'
 });
 
+Router.route('/joinRequests', {
+	name: 'joinRequests',
+	template: 'joinRequestsWrapper'
+});
+
 Router.route('/requirements', {
 	name: 'requirementsPage',
 	template: 'requirementsPageWrapper'
