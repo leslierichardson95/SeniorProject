@@ -27,24 +27,6 @@ Template.upcomingEventsTable.helpers({
 
 });
 
-Template.upcomingEvent.helpers({
-	clubs: function() {
-		// get all clubs the user is a part of 
-		Members.join(Clubs, "clubId", "club", ["clubName", "clubDescription", "creationDate"]);
-		var usersClubIds = Members.find({userId: Meteor.userId()},{"club._id":1}).fetch();
-		// map array to club ids
-		usersClubIds = usersClubIds.map(function(x) {return x.club._id});
-		// query all events the user is a part of (aka find all events containing a club id the user is a part of)
-		//console.log(Clubs.find({_id:{$in: usersClubIds} }).fetch());
-		return Clubs.find({ _id:{$in: usersClubIds} });
-	},
-
-	isPast: function(date) {
-		let today = moment().format();
-		return moment(today).isAfter(date);
-	}
-});
-
 Template.pastEventsTable.helpers({
 	pastEvents: function() {
 		// get all clubs the user is a part of 

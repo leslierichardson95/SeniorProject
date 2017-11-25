@@ -11,12 +11,35 @@
   position: relative;
   margin: auto;
   background-color: #F1C40F;">
-
-
-
-
+  <br>
+  <h1 align="center">Club Posts</h1>
+  {{> clubPostsTable}}
 
 </div>  
-
-
 </template>	
+
+<template name="clubPostsTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      	<th>Club Name</th>
+        <th>Date Posted</th>
+        <th>Announcement</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each clubPosts}}
+        {{> clubPost}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="clubPost">
+  <tr>
+  	  <td>{{ club.clubName }}</td>
+      <td>{{ datePosted }}</td>
+      <td>{{ announcement }}</td>
+  </tr>
+</template>
