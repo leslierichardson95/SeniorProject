@@ -11,8 +11,6 @@
         <th>Event Type</th>
         <th>Event Value</th>
         <th>Sign Up</th>
-        <th>Send Event Notification?</th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -35,10 +33,7 @@
       <td>{{ eventType }}</td>
       <td>{{ eventValue }}</td>
         <td align="center">
-          <input class="signUpToggle" type="checkbox" data-toggle="toggle">
-        </td>
-        <td align="center">
-          <input class="notificationToggle" type="checkbox" data-toggle="toggle" data-on="yes" data-off="no">
+          <input class="signUpToggle" type="checkbox" checked="{{isSignUpChecked}}">
         </td>
         {{#if isAdmin}}
           <td>
