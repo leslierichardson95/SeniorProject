@@ -22,6 +22,14 @@ Meteor.methods({
 		});
 	},
 
+	'members.makeAdmin'(memberId) {
+		Members.update(memberId, { $set: {admin: true}} );
+	},
+
+	'members.removeAdmin'(memberId) {
+		Members.update(memberId, { $set: {admin: false}} );
+	},
+
 	'members.update'(memberId, newFirstName, newLastName, newEmail, newPhone, newStatus, newPosition, newAdmin) {
 		Members.update(memberId, { $set: {"firstName": newFirstName } });
 		Members.update(memberId, { $set: {"lastName": newLastName } });

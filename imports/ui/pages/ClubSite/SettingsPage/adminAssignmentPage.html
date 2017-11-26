@@ -1,0 +1,51 @@
+<template name="adminAssignmentPage">
+
+  <div class="container" style="width: 1100px;
+  height: 580px;
+  top:20px;
+  position: relative;
+  margin: auto;
+  background-color: white;">
+    {{#if currentUser}}
+      <h1 align="center">Admin Assignment</h1>
+      {{> settingsNavbar}}
+      {{> adminAssignmentTable}}
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+</template>
+
+<template name="adminAssignmentTable">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date Joined</th>
+        <th>Member Status</th>
+        <th>Position</th>
+        <th>Set as Admin</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each members}}
+        {{> adminAssignment}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</template>
+
+<template name="adminAssignment">
+  <tr>
+      <td>{{ firstName }}</td>
+      <td>{{ lastName }}</td>
+      <td>{{ dateJoined }}</td>
+      <td>{{ status }}</td>
+      <td>{{ position }}</td>
+      <td align="center">
+        <input type="checkbox" class="adminCheckbox" checked="{{isAdminChecked}}">
+      </td>
+  </tr>
+</template>

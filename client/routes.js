@@ -93,6 +93,11 @@ Router.route('/notifications', {
 	template: 'notificationsPageWrapper'
 });
 
+Router.route('/adminAssignment', {
+	name: 'adminAssignmentPage',
+	template: 'adminAssignmentPageWrapper'
+});
+
 Router.route('/search', {
 	name: 'search',
 	template: 'search'
