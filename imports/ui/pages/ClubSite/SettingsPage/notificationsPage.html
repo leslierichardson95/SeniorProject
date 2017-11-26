@@ -28,5 +28,8 @@
 <template name="settingsNavbar">
   <ul class="nav nav-pills">
     <li role="presentation" id="currentMembersTab"><a href="{{pathFor route='notificationsPage'}}">Notifications</a></li>
+    {{#if isAdmin}}
+    <li role="presentation" id="currentMembersTab"><a href="{{pathFor route='adminAssignmentPage'}}">Admin Assignment</a></li>
+    {{/if}}
   </ul>
 </template>

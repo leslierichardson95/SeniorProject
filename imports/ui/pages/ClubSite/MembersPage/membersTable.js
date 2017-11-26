@@ -9,7 +9,7 @@ var ClubSiteId;
 Template.membersTable.helpers({
 	members() {
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
-		return Members.find({clubId: ClubSiteId});
+		return Members.find({clubId: ClubSiteId}, {sort: {lastName: 1, firstName: 1}});
 	},
 });
 
@@ -50,8 +50,8 @@ Template.member.events({
 	},
 
 	'click .deleteBtn'() {
-		if (Members.findOne({clubId: ClubSiteId, _id: this._id}).admin) {
-			swal("You are an admin!  Please make someone else the club administrator before deleting yourself.", '','error');
+		if (Members.findOne({clubId: ClubSiteId, _id: this._id}).admin && Members.find({clubId: ClubSiteId, admin: true}).count() <= 1) {
+			swal("You are an admin!  Please make someone else a club administrator before deleting yourself.", '','error');
 		}
 		else {
 			Meteor.call('requirements.remove', this._id, this.requirementName, ClubSiteId);

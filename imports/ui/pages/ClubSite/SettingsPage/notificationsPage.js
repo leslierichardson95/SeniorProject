@@ -62,3 +62,11 @@ Template.notificationsPage.events({
 		}
 	}
 });
+
+Template.settingsNavbar.helpers({
+	isAdmin: function() {
+		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+		if (Members.findOne({userId: Meteor.userId()}).admin) return true;
+		else return false;
+	}
+});

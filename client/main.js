@@ -31,6 +31,8 @@ import '../imports/ui/pages/ClubSite/LogsPage/requirementLogsPage.js';
 import '../imports/ui/pages/ClubSite/LogsPage/requirementLogsPageWrapper.js';
 import '../imports/ui/pages/ClubSite/SettingsPage/notificationsPage.js';
 import '../imports/ui/pages/ClubSite/SettingsPage/notificationsPageWrapper.js';
+import '../imports/ui/pages/ClubSite/SettingsPage/adminAssignmentPage.js';
+import '../imports/ui/pages/ClubSite/SettingsPage/adminAssignmentPageWrapper.js';
 
 
 import '../imports/ui/pages/CalPage.js';
