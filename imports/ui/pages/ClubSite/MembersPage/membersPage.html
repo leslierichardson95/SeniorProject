@@ -58,8 +58,8 @@
 
 <template name="membersNavbar">
   <ul class="nav nav-pills">
-    <li role="presentation" id="currentMembersTab"><a href="{{pathFor route='membersPage'}}">Current Members</a></li>
-    <li role="presentation" id="pendingMembersTab"><a href="{{pathFor route='pendingMembers'}}">Pending Members</a></li>
-    <li role="presentation" id="joinRequestsTab"><a href="{{pathFor route='joinRequests'}}">Join Requests</a></li>
+    <li role="presentation" id="currentMembersTab"><a href="{{pathFor route='membersPage'}}">Current Members ({{memberCount}})</a></li>
+    <li role="presentation" id="pendingMembersTab"><a href="{{pathFor route='pendingMembers'}}">Pending Members ({{pendingCount}})</a></li>
+    <li role="presentation" id="joinRequestsTab"><a href="{{pathFor route='joinRequests'}}">Join Requests ({{joinCount}})</a></li>
   </ul>
 </template>

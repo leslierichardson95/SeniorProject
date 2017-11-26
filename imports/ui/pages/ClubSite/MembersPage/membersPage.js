@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating';
 import { Members } from '../../../../database/members.js';
 import { Clubs } from '../../../../database/clubs.js';
 import { ClubSiteIds } from '../../../../database/clubSiteIds.js';
+import { InviteCodes } from '../../../../database/inviteCodes.js';
+import { JoinRequests } from '../../../../database/joinRequests.js';
 
 import './membersPage.html';
 
@@ -34,5 +36,23 @@ Template.membersPage.events({
 		$('#inviteMemberModal').modal('hide');	
 
 		Bert.alert('Invite Sent!', 'success');
+	}
+});
+
+Template.membersNavbar.helpers({
+	memberCount: function() {
+		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+		return Members.find({clubId: ClubSiteId}).count();
+	},
+
+	pendingCount: function() {
+		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+		//console.log(InviteCodes.find({clubId: ClubSiteId}).count());
+		return InviteCodes.find({clubId: ClubSiteId}).count();
+	},
+
+	joinCount: function() {
+		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+		return JoinRequests.find({clubId: ClubSiteId}).count();
 	}
 });
