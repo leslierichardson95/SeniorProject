@@ -124,7 +124,8 @@ Template.addEditEventModal.events({
           eventType: template.find( '[name="eventType"] option:selected' ).value,
           eventValue: template.find( '[name="eventValue"]' ).value,
           attendees: [],
-          clubId: ClubSiteId
+          clubId: ClubSiteId,
+          eventCreator: Meteor.userId()
         };
 
     if ( submitType === 'events.update' ) {
