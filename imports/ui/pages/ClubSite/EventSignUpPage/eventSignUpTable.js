@@ -30,6 +30,16 @@ Template.eventSignUp.helpers({
 		return Members.findOne({userId: Meteor.userId(), clubId: ClubSiteId}).admin || isEventCreator(this._id);
 	},
 
+	isSignUpChecked: function() {
+		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+		var member = Members.findOne({clubId: ClubSiteId, userId: Meteor.userId()});
+		//console.log(Events.find( {_id: this._id, signedUpMembers: {$in: [member._id]} } ).fetch());
+		if ( Events.find( {_id: this._id, signedUpMembers: {$in: [member._id]} } ).count() === 1 ) {
+			return true;
+		}
+		else return false;
+	}
+
 });
 
 Template.eventSignUp.events({
