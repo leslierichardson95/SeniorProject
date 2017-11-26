@@ -13,6 +13,7 @@
         <th>Sign Up</th>
         <th>Send Event Notification?</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -39,5 +40,10 @@
         <td align="center">
           <input class="notificationToggle" type="checkbox" data-toggle="toggle" data-on="yes" data-off="no">
         </td>
+        {{#if isAdmin}}
+          <td>
+            <button type="submit" class="signInAllBtn btn btn-md btn-primary">Sign In All Members</button>
+          </td>
+        {{/if}}
   </tr>
 </template>

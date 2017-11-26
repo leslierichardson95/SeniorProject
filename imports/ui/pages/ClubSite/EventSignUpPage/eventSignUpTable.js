@@ -20,6 +20,18 @@ Template.eventSignUpTable.helpers({
 	}
 });
 
+function isEventCreator(eventId) {
+	var creatorId = Events.findOne({_id: eventId}, {eventCreator: 1, _id: 0});
+	if (Meteor.userId() === creatorId.eventCreator) return true;
+		else return false;
+}
+Template.eventSignUp.helpers({
+	isAdmin: function() {
+		return Members.findOne({userId: Meteor.userId(), clubId: ClubSiteId}).admin || isEventCreator(this._id);
+	},
+
+});
+
 Template.eventSignUp.events({
 	'click .signUpToggle' (event) {
 		// console.log(event.target.checked);
@@ -35,5 +47,11 @@ Template.eventSignUp.events({
 			Meteor.call('events.removeSignUp', this._id, memberId);
 			Bert.alert('You are no longer signed up');
 		}
+	},
+
+	'click .signInAllBtn'() {
+		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+		var memberIds = Members.find({clubId: ClubSiteId}, {_id:1}).fetch();
+		Meteor.call('events.addAllSignUp', this._id, memberIds);
 	}
 });

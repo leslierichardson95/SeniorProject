@@ -58,4 +58,25 @@ Template.requirement.events({
 		$(".modal-body #editTotalNeeded").val(totalNeeded);
 		$(".modal-body #editDescription").val(description);
 	},
+
+	'click .resetBtn'() {
+		var requirementName = this.requirementName;
+		swal({
+			title: 'Are you sure you want to reset this requirement\'s points?',
+			text: "Once reset, all member-aquired points and event attendance pertaining to this requirement will be reset to zero.",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+		  	cancelButtonColor: '#d33',
+		  	confirmButtonText: 'Yes, reset it!',
+		  	cancelButtonText: 'No, cancel!',
+		  	confirmButtonClass: 'btn btn-success',
+		  	cancelButtonClass: 'btn btn-danger',
+		  	buttonsStyling: false,
+		}).then(function () {
+			ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
+			Meteor.call('members.resetRequirement', requirementName, ClubSiteId);
+			Bert.alert("Requirement points reset!", 'success');
+		});
+	}
 });

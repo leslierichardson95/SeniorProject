@@ -65,6 +65,13 @@ Meteor.methods({
 			}, {multi: true});
 	},
 
+	'members.resetRequirement'(requirementName, clubSiteId) {
+		// Meteor.call('members.removeRequirement', requirementName, clubSiteId);
+		// Meteor.call('members.addRequirement', requirementName, clubSiteId);
+		Meteor.call('events.removeAllAttendees', clubSiteId);
+		Members.update({clubId: clubSiteId}, {$set: {[requirementName]: 0} }, {multi:true});
+	},
+
 	'members.removeRequirement'(requirementName, clubSiteId) {
 		Members.update({clubId: clubSiteId},
 			{ $unset:

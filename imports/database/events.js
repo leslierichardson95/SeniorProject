@@ -50,6 +50,12 @@ Meteor.methods({
 		Events.update({_id: eventId }, { $addToSet: {'signedUpMembers': memberId} }, {upsert: true});
 	},
 
+	'events.addAllSignUp'(eventId, memberIds) {
+		for (var i = 0; i < memberIds.length; i++) {
+			Meteor.call('events.addSignUp', eventId, memberIds[i]._id);
+		}
+	},
+
 	'events.removeSignUp'(eventId, memberId) {
 		Events.update({_id: eventId }, { $pull: {'signedUpMembers': memberId} }, {upsert: true});
 	},
@@ -75,6 +81,14 @@ Meteor.methods({
 		}
 		// remove attendee from sign up list
 		Meteor.call('events.removeSignUp', eventId, memberId);
+	},
+
+	'events.removeAttendees'(eventId, clubId) {
+		Events.update({_id: eventId}, { $unset: {attendees: 1} });
+	},
+
+	'events.removeAllAttendees'(clubId) {
+		Events.update({clubId: clubId}, { $unset: {attendees: 1} }, {multi: true});
 	},
 
 	'events.remove'(event) {

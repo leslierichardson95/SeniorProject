@@ -14,7 +14,7 @@ Template.eventLogsTable.helpers({
 	'members': function() {
 		//sorts by last name in alphabetical order
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
-		return Members.find({clubId: ClubSiteId}, { sort: { lastName: 1 } }).fetch();
+		return Members.find({clubId: ClubSiteId}, { sort: { lastName: 1, firstName: 1 } }).fetch();
 	},
 	'events': function() {
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
@@ -24,8 +24,6 @@ Template.eventLogsTable.helpers({
 		//check if name === a name in event participants list 
 		//if yes, return true, else return false
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
-		console.log(memberID);
-		console.log(Events.find({attendees: {$in: [memberID]}, title: eventName}).fetch());
 		if (Events.find({clubId: ClubSiteId, attendees: {$in: [memberID]}, title: eventName}, {title: 1, _id: 0}).count() >= 1) {
 			return true;
 		}

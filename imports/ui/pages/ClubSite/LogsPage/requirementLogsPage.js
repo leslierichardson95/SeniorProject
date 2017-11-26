@@ -14,7 +14,7 @@ Template.requirementLogsTable.helpers({
 	'members': function() {
 		//sorts by last name in alphabetical order
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
-		return Members.find({clubId: ClubSiteId}, { sort: { lastName: 1 } }).fetch();
+		return Members.find({clubId: ClubSiteId}, { sort: { lastName: 1, firstName: 1 } }).fetch();
 	},
 	'requirements': function() {
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
