@@ -1,0 +1,32 @@
+<template name="notificationsPage">
+
+  <div class="container" style="width: 1100px;
+  height: 580px;
+  top:20px;
+  position: relative;
+  margin: auto;
+  background-color: white;">
+    {{#if currentUser}}
+      <h1 align="center">Notifications</h1>
+      {{> settingsNavbar}}
+      <h2>Announcement Notfications</h2>
+      <p>Get Notifications via <strong>Email</strong>
+        <span style="padding-left:15px"><input type="checkbox" class="announceEmailCheckbox" checked="{{isAnnounceChecked}}"></span>
+      </p>
+      
+      <h2>Event Notifications</h2>
+      <p>Get Notifications via <strong>Email</strong>
+        <span style="padding-left:15px"><input type="checkbox" class="eventEmailCheckbox" checked="{{isEventsChecked}}"></span>
+      </p>
+
+      {{else}}
+        <ul><h3>Please Sign In to access this page!</h3></ul>
+      {{/if}}
+  </div>
+</template>
+
+<template name="settingsNavbar">
+  <ul class="nav nav-pills">
+    <li role="presentation" id="currentMembersTab"><a href="{{pathFor route='notificationsPage'}}">Notifications</a></li>
+  </ul>
+</template>

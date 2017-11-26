@@ -36,5 +36,28 @@ if (Meteor.isServer) {
 				' has been declined.</p>'
 			});
 		},
+
+		'emailAnnouncement': function(email, clubName, announcement) {
+			Email.send({
+				from: 'postmaster@sandbox66c393fbdd0e4f7dabb9581c7adfcaed.mailgun.com',
+				to: email,
+				subject: 'Gator Club Manager: ' + clubName + ' Announcement',
+				text: announcement
+			});
+		},
+
+		'emailEvent': function(email, title, date, sTime, eTime, location, eventType, description){
+			Email.send({
+				from: 'postmaster@sandbox66c393fbdd0e4f7dabb9581c7adfcaed.mailgun.com',
+				to: email,
+				subject: 'Gator Club Manager: Event Reminder',
+				html: '<h4>' + title + '</h4>' +
+				'<p>' + date + '</p>' +
+				'<p>' + sTime + '-' + eTime + '</p>' +
+				'<p>' + location + '</p>' +
+				'<p>' + eventType + '</p>' + 
+				'<p>' + description + '</p>'
+			});
+		}
 	});
 }

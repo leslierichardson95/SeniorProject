@@ -88,6 +88,11 @@ Router.route('/requirementLogs', {
 	template: 'requirementLogsPageWrapper'
 });
 
+Router.route('/notifications', {
+	name: 'notificationsPage',
+	template: 'notificationsPageWrapper'
+});
+
 Router.route('/search', {
 	name: 'search',
 	template: 'search'

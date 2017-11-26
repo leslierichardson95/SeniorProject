@@ -29,6 +29,8 @@ import '../imports/ui/pages/ClubSite/LogsPage/eventLogsPage.js';
 import '../imports/ui/pages/ClubSite/LogsPage/eventLogsPageWrapper.js';
 import '../imports/ui/pages/ClubSite/LogsPage/requirementLogsPage.js';
 import '../imports/ui/pages/ClubSite/LogsPage/requirementLogsPageWrapper.js';
+import '../imports/ui/pages/ClubSite/SettingsPage/notificationsPage.js';
+import '../imports/ui/pages/ClubSite/SettingsPage/notificationsPageWrapper.js';
 
 
 import '../imports/ui/pages/CalPage.js';
