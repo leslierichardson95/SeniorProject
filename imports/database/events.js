@@ -63,22 +63,25 @@ Meteor.methods({
 	'events.addAttendee'(eventId, memberId, name, eventType, clubId) {
 		Events.update({ _id: eventId }, { $addToSet: {'attendees': memberId } }, {upsert: true});
 
-		var status = Members.findOne({_id: memberId})[eventType];
-		if (status !== "COMPLETE") {
-			var points = parseInt(status);
-			points += parseInt(Events.findOne({_id: eventId}).eventValue);
+		if (eventType !== "None") {
+			var status = Members.findOne({_id: memberId})[eventType];
+			if (status !== "COMPLETE") {
+				var points = parseInt(status);
+				points += parseInt(Events.findOne({_id: eventId}).eventValue);
 
-			// get the number of points needed for the specific requirement corresponding to the event
-			var pointsNeeded = parseInt(Requirements.findOne({clubId: clubId, requirementName: eventType}).totalNeeded);
+				// get the number of points needed for the specific requirement corresponding to the event
+				var pointsNeeded = parseInt(Requirements.findOne({clubId: clubId, requirementName: eventType}).totalNeeded);
 
-			// check if points have been met, if not, update the numerical value accordingly
-			if (points >= pointsNeeded) {
-				Members.update({_id:memberId}, { $set: {[eventType]: "COMPLETE"} });
-			}
-			else {
-				Members.update({_id: memberId}, { $set: {[eventType]: points} });
+				// check if points have been met, if not, update the numerical value accordingly
+				if (points >= pointsNeeded) {
+					Members.update({_id:memberId}, { $set: {[eventType]: "COMPLETE"} });
+				}
+				else {
+					Members.update({_id: memberId}, { $set: {[eventType]: points} });
+				}
 			}
 		}
+		
 		// remove attendee from sign up list
 		Meteor.call('events.removeSignUp', eventId, memberId);
 	},
