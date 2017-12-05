@@ -16,7 +16,12 @@ var ClubSiteId;
 Template.eventSignUpTable.helpers({
 	events() {
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
-		return Events.find({clubId: ClubSiteId}, {sort: {start: 1, sTime: 1}});
+
+		// convert current date to a moment object in YYYY-MM-DD format--fullcalendar.io uses moment.js for dates
+		var currentDate = moment().startOf('day');
+		currentDate = currentDate.format("YYYY-MM-DD");
+
+		return Events.find({clubId: ClubSiteId, start: {$gte: currentDate} }, {sort: {start: 1, sTime: 1}});
 	}
 });
 
