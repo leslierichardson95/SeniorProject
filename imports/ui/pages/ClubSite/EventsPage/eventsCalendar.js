@@ -111,7 +111,12 @@ Template.addEditEventModal.events({
   'submit form' ( event, template ) {
     event.preventDefault();
     ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
-
+    console.log(template.find('[name="eventValue"]').value);
+    var eventValue = template.find('[name="eventValue"]').value;
+    if (eventValue === null || eventValue === undefined || eventValue === '') {
+      eventValue = 0;
+    }
+    console.log(eventValue);
     let eventModal = Session.get( 'eventModal' ),
         submitType = eventModal.type === 'edit' ? 'events.update' : 'events.insert',
         eventItem  = {
@@ -122,7 +127,7 @@ Template.addEditEventModal.events({
           eTime: template.find( '[name="eTime"]').value,
           location: template.find('[name="location"]').value,
           eventType: template.find( '[name="eventType"] option:selected' ).value,
-          eventValue: template.find( '[name="eventValue"]' ).value,
+          eventValue: eventValue,
           attendees: [],
           clubId: ClubSiteId,
           eventCreator: Meteor.userId()
