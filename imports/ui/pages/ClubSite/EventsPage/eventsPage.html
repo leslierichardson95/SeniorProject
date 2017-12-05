@@ -5,10 +5,13 @@
   top:20px;
   position: relative;
   margin: auto;
-  background-color: white;">
+  background-color: #f4f4f4;">
     {{#if currentUser}}
       <h1 align="center">Club Events</h1>
-      <ul> {{> eventsCalendar }} </ul>
+      <br>
+      <div id="eventCalendar">
+        <ul> {{> eventsCalendar }} </ul>
+       </div> 
       {{else}}
         <ul><h3>Please Sign In to access this page!</h3></ul>
       {{/if}}

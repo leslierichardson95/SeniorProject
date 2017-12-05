@@ -5,11 +5,11 @@
   top:20px;
   position: relative;
   margin: auto;
-  background-color: white;">
+  background-color: #f4f4f4;">
     {{#if currentUser}}
       <h1 align="center">Club Requirements</h1>
       <ul align="right">
-        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#addRequirementModal">Add a New Club Requirement</button>
+        <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#addRequirementModal" style="position:relative;top: 35px;right:3px;width:205px;height:35px;font-size:100%;padding: 5px 10px;" >Add a New Club Requirement</button>
       </ul>
       <ul> {{> requirementsTable }} </ul>
       {{else}}

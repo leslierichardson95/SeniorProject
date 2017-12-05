@@ -2,14 +2,14 @@
   {{> navbar}}
   {{> navbar1}}
   <br><br><br><br><br><br><br><br>
-  <div class="container" style="width: 1000px;height:400px; top: 50%; position:relative;margin:auto;background-color:white;border-radius:25px">
+  <div class="container" style="width: 1000px;height:400px; top: 11%; position:relative;margin:auto;background-color:#f4f4f4;">
     {{#if currentUser}}
       <h1 align="center">My Profile</h1>
       {{> myProfileNavbar}}
-      <h2 align="center">{{userInfo.profile.firstName}} {{userInfo.profile.lastName}}</h2>
-      <p align="center">Email: {{userEmail}}</p>
-      <p align="center">Phone Number: {{userInfo.profile.phoneNumber}}</p>
-      <div align="center"><button align="center" class="btn btn-default" data-toggle="modal" data-target="#editProfileModal">Edit Profile</button></div>
+      <h3 style="position:relative;top:10px; left:15px">{{userInfo.profile.firstName}} {{userInfo.profile.lastName}}</h3>
+      <p style="position:relative;top:10px; left:15px">Email: {{userEmail}}</p>
+      <p style="position:relative;top:10px; left:15px">Phone Number: {{userInfo.profile.phoneNumber}}</p>
+      <div style="position:absolute;top:70px; right:50px"><button  class="btn btn-default" data-toggle="modal" data-target="#editProfileModal">Edit Profile</button></div>
       {{else}}
         <ul><h3 align="center">Please Sign In to access this page!</h3></ul>
         <h2 align="center">Sign In</h2>

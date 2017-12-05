@@ -5,16 +5,16 @@
   top:20px;
   position: relative;
   margin: auto;
-  background-color: white;">
+  background-color: #f4f4f4;">
     {{#if currentUser}}
       <h1 align="center">Notifications</h1>
       {{> settingsNavbar}}
-      <h2>Announcement Notfications</h2>
+      <h4>Announcement Notfications</h4>
       <p>Get Notifications via <strong>Email</strong>
         <span style="padding-left:15px"><input type="checkbox" class="announceEmailCheckbox" checked="{{isAnnounceChecked}}"></span>
       </p>
       
-      <h2>Event Notifications</h2>
+      <h4>Event Notifications</h4>
       <p>Get Notifications via <strong>Email</strong>
         <span style="padding-left:15px"><input type="checkbox" class="eventEmailCheckbox" checked="{{isEventsChecked}}"></span>
       </p>
