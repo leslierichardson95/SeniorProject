@@ -24,10 +24,12 @@ Meteor.methods({
 
 	'members.makeAdmin'(memberId) {
 		Members.update(memberId, { $set: {admin: true}} );
+		Members.update(memberId, { $set: {status: 'Admin/Active'}} );
 	},
 
 	'members.removeAdmin'(memberId) {
 		Members.update(memberId, { $set: {admin: false}} );
+		Members.update(memberId, { $set: {status: 'Active'}} );
 	},
 
 	'members.update'(memberId, newFirstName, newLastName, newEmail, newPhone, newStatus, newPosition, newAdmin) {

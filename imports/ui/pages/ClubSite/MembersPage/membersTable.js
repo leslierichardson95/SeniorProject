@@ -54,7 +54,7 @@ Template.member.events({
 			swal("You are an admin!  Please make someone else a club administrator before deleting yourself.", '','error');
 		}
 		else {
-			Meteor.call('requirements.remove', this._id, this.requirementName, ClubSiteId);
+			Meteor.call('members.remove', this._id);
 		}
     	
 	},

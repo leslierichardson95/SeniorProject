@@ -84,7 +84,7 @@ Template.eventSignIn.events({
 		attendeeName = attendeeName.concat(Members.findOne({ _id: selectedAttendee }).lastName);
 		ClubSiteId = ClubSiteIds.findOne({clubIdUser: Meteor.userId()}).clubId;
 		Meteor.call('events.addAttendee', eventID, selectedAttendee, attendeeName, eventType, ClubSiteId);
-
+		Bert.alert('You are signed in!','success');
 		//selectedButton.className = "memberBtn list-group-item-success";
 
 		// hide the modal/clear form
